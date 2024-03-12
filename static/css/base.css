@@ -1,0 +1,33 @@
+/* style.css */
+header {
+    background-color: #8B5A2B; /* Brown */
+    color: #fff; /* White */
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 a {
+    color: #fff; /* White */
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #D2B48C; /* Tan */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #fff; /* White */
+}
