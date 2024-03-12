@@ -1,19 +1,18 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Home - Fur Fun{% endblock %}
 
 {% block content %}
-    <section id="hero">
-        <div class="container">
-            <h2>Welcome to Fur Fun!</h2>
-            <p>Your one-stop shop for all your pet needs.</p>
-        </div>
-    </section>
-
-    <section id="featured-products">
-        <div class="container">
-            <h3>Featured Products</h3>
-            <!-- Add featured product listings here -->
+    <section id="welcome">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <h2 class="welcome-heading">Welcome to Fur Fun!</h2>
+                    <p>Your one-stop shop for all your pet needs.</p>
+                    <a href="#" class="btn btn-primary">Enter the Site</a>
+                </div>
+            </div>
         </div>
     </section>
 {% endblock %}

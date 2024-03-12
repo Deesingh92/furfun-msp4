@@ -1,6 +1,5 @@
-/* style.css */
 header {
-    background-color: #8B5A2B; /* Brown */
+    background-color: #b96f2a; /* Brown */
     color: #fff; /* White */
     padding: 20px;
     text-align: center;
@@ -8,6 +7,8 @@ header {
 
 header h1 a {
     color: #fff; /* White */
+    font-family: "Madimi One", sans-serif;
+    font-size: 48px;
     text-decoration: none;
 }
 
@@ -30,4 +31,24 @@ nav ul li a {
 
 nav ul li a:hover {
     color: #fff; /* White */
+}
+
+.welcome-heading {
+    color: red;
+}
+
+.account-link {
+    position: absolute;
+    top: 60px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fefefe; /* Adjust color as needed */
+    text-decoration: none;
+    font-size: 14px; /* Adjust font size as needed */
+}
+
+.account-link i {
+    font-size: 30px; /* Adjust icon size as needed */
 }
