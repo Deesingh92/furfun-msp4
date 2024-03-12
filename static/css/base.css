@@ -3,6 +3,7 @@ header {
     color: #fff; /* White */
     padding: 20px;
     text-align: center;
+    height: 100%;
 }
 
 header h1 a {
@@ -24,13 +25,13 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #D2B48C; /* Tan */
+    color: #fff; /* White */ 
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #fff; /* White */
+    color: #D2B48C; /* Tan */
 }
 
 .welcome-heading {
@@ -51,4 +52,15 @@ nav ul li a:hover {
 
 .account-link i {
     font-size: 30px; /* Adjust icon size as needed */
+}
+
+
+.logo {
+    float: left; /* Align the logo to the left */
+}
+
+.logo img {
+    max-width: 100% !important; /* Ensure the logo image fills the container width */
+    max-height: 100px; /* Set a maximum height for the logo */
+    height: auto; /* Maintain aspect ratio */
 }

@@ -35,6 +35,12 @@
   </head>
     <body>
       <header>
+        <div class="container-fluid">
+            <div class="logo">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'media/logo.png' %}" alt="Fur Fun Logo">
+                </a>
+        </div>
         <div class="container">
             <h1><a href="{% url 'home' %}">Fur Fun Frenzy</a></h1>
             <nav>
