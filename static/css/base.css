@@ -61,6 +61,6 @@ nav ul li a:hover {
 
 .logo img {
     max-width: 100% !important; /* Ensure the logo image fills the container width */
-    max-height: 100px; /* Set a maximum height for the logo */
+    max-height: 120px; /* Set a maximum height for the logo */
     height: auto; /* Maintain aspect ratio */
 }
