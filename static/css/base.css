@@ -1,3 +1,11 @@
+html {
+    height: 100%;
+}
+
+body {
+    background-color: #D2B48C;
+}
+
 header {
     background-color: #b96f2a; /* Brown */
     color: #fff; /* White */
@@ -11,6 +19,35 @@ header h1 a {
     font-family: "Madimi One", sans-serif;
     font-size: 48px;
     text-decoration: none;
+}
+
+footer {
+    background-color: #b96f2a;
+    color: #fff;
+    padding: 20px 0;
+}
+
+
+.social-icons {
+    display: flex; /* Use flexbox to arrange icons vertically */
+    align-items: center; /* Center icons horizontally */
+    padding: 0;
+    margin: 0;
+}
+
+.social-icons li {
+    margin-bottom: 10px; /* Adjust spacing between icons */
+}
+
+.social-icons li a {
+    font-size: 40px; /* Adjust the size of the icons */
+    letter-spacing: 30px;
+    color: #ffffff; /* Change the color of the icons */
+    transition: color 0.3s ease; /* Add smooth transition for color change */
+}
+
+.social-icons li a:hover {
+    color: #f79000; /* Change color on hover */
 }
 
 nav ul {
@@ -31,11 +68,18 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #D2B48C; /* Tan */
+    color: #f79000; /* Orange */
 }
 
-.welcome-heading {
-    color: red;
+#carouselExampleAutoplaying {
+    max-width: 100%; /* Set maximum width to 100% */
+    margin: 0 auto; /* Center the carousel horizontally */
+}
+
+#carouselExampleAutoplaying .carousel-inner .carousel-item img {
+    width: 100%; /* Set a fixed width */
+    height: auto; /* Set a fixed height */
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
 }
 
 .account-link {
