@@ -1,0 +1,43 @@
+{
+    "model": "shop.Product",
+    "pk": 1,
+    "fields": {
+        "category": 1,
+        "sku": "TRT001",
+        "name": "Chicken Jerky Treats",
+        "description": "Delicious chicken jerky treats for dogs",
+        "price": "9.99",
+        "rating": "4.5",
+        "image_url": "",
+        "image": ""
+    }
+},
+{
+    "model": "shop.Product",
+    "pk": 2,
+    "fields": {
+        "category": 1,
+        "sku": "TRT002",
+        "name": "Salmon Bites",
+        "description": "Tasty salmon bites for cats",
+        "price": "7.99",
+        "rating": "4.2",
+        "image_url": "",
+        "image": ""
+    }
+},
+{
+    "model": "shop.Product",
+    "pk": 3,
+    "fields": {
+        "category": 1,
+        "sku": "TRT003",
+        "name": "Dental Chew Sticks",
+        "description": "Chew sticks for promoting dental health in dogs",
+        "price": "12.99",
+        "rating": "4.8",
+        "image_url": "",
+        "image": ""
+    }
+}
+]

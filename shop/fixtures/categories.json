@@ -1,0 +1,36 @@
+[
+    {
+        "model": "shop.category",
+        "pk": 1,
+        "fields": {
+            "name": "Treats",
+            "friendly_name": "Pet Treats"
+        }
+    },
+    {
+        "model": "shop.category",
+        "pk": 2,
+        "fields": {
+            "name": "Toys",
+            "friendly_name": "Pet Toys"
+        }
+    },
+    {
+        "model": "shop.category",
+        "pk": 3,
+        "fields": {
+            "name": "Grooming",
+            "friendly_name": "Pet Grooming"
+        }
+    },
+    {
+        "model": "shop.category",
+        "pk": 4,
+        "fields": {
+            "name": "Health",
+            "friendly_name": "Pet Health"
+        }
+    }
+
+
+]
