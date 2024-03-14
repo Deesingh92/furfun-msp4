@@ -10,19 +10,26 @@ header {
     text-align: center;
     height: 100%;
     position: relative;
+    max-height: 200px;
 }
 
 
 .logo {
-    position: absolute; /* Position the logo absolutely within the header */
+    position: absolute; 
     top: 10px; /* Adjust the top position as needed */
     left: 10px; /* Adjust the left position as needed */
 }
 
+.logo img {
+    max-width: 100% !important; /* Ensure the logo image fills the container width */
+    max-height: 150px; /* Set a maximum height for the logo */
+}
+
+
 header h1 a {
     color: #fff; /* White */
     font-family: "Madimi One", sans-serif;
-    font-size: 48px;
+    font-size: 60px;
     text-decoration: none;
 }
 
@@ -76,6 +83,20 @@ nav ul li a:hover {
     color: #f79000; /* Orange */
 }
 
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-nav {
+    margin-top: 10px;
+}
+
+.navbar {
+    justify-content: center;
+}
+
 .navbar-nav .nav-link {
     color: white;
 }
@@ -120,18 +141,6 @@ nav ul li a:hover {
 }
 
 
-.logo {
-    float: left; /* Align the logo to the left */
-    position: absolute; /* Position the logo absolutely within the header */
-    top: 10px; /* Adjust the top position as needed */
-    left: 10px;
-}
-
-.logo img {
-    max-width: 100% !important; /* Ensure the logo image fills the container width */
-    max-height: 100px; /* Set a maximum height for the logo */
-}
-
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
     .fixed-top-desktop-only {
@@ -143,14 +152,6 @@ nav ul li a:hover {
     }
 }
 
-.logo {
-    float: left; /* Align the logo to the left */
-}
-
-.logo img {
-    max-width: 100% !important; /* Ensure the logo image fills the container width */
-    max-height: 120px; /* Set a maximum height for the logo */
-}
 
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
