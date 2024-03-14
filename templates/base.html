@@ -34,37 +34,9 @@
     <title>Fur Fun Frenzy</title>
   </head>
     <body>
-        <header class="sticky-top">
-            <div class="container-fluid">
-                <div class="logo">
-                    <a href="{% url 'home' %}">
-                        <img src="{% static 'media/logo.png' %}" alt="Fur Fun Logo">
-                    </a>
-                </div>
-                <div class="container">
-                    <h1><a href="{% url 'home' %}">Fur Fun Frenzy</a></h1>
-                    <nav class="navbar navbar-expand-md">
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse justify-content-md-center" id="navbarNav">
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Shop</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">About</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Contact</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                    <a href="#" class="account-link"><i class="fa fa-user-circle"></i> My Account</a>
-                </div>
-            </div>
-        </header>
+        {% include 'includes/header.html' %}
+        
+        
         
     
     <main>
@@ -78,7 +50,7 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-5">
                     <p>&copy; 2024 Fur Fun. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 d-flex justify-content-between">

@@ -1,6 +1,3 @@
-html {
-    height: 100%;
-}
 
 body {
     background-color: #D2B48C;
@@ -12,6 +9,14 @@ header {
     padding: 20px;
     text-align: center;
     height: 100%;
+    position: relative;
+}
+
+
+.logo {
+    position: absolute; /* Position the logo absolutely within the header */
+    top: 10px; /* Adjust the top position as needed */
+    left: 10px; /* Adjust the left position as needed */
 }
 
 header h1 a {
@@ -25,12 +30,12 @@ footer {
     background-color: #b96f2a;
     color: #fff;
     padding: 20px 0;
+    margin-top: 20px;
 }
 
 
 .social-icons {
     display: flex; /* Use flexbox to arrange icons vertically */
-    align-items: center; /* Center icons horizontally */
     padding: 0;
     margin: 0;
 }
@@ -71,6 +76,14 @@ nav ul li a:hover {
     color: #f79000; /* Orange */
 }
 
+.navbar-nav .nav-link {
+    color: white;
+}
+
+.navbar-nav .nav-link:hover {
+    color: orange;
+}
+
 #carouselExampleAutoplaying {
     max-width: 100%; /* Set maximum width to 100% */
     margin: 0 auto; /* Center the carousel horizontally */
@@ -82,22 +95,53 @@ nav ul li a:hover {
     object-fit: cover; /* Maintain aspect ratio and cover the container */
 }
 
-.account-link {
+.account-link,
+.shopping-bag-link {
     position: absolute;
-    top: 60px; /* Adjust as needed */
-    right: 10px; /* Adjust as needed */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    top: 50%;
+    transform: translateY(-50%);
     color: #fefefe; /* Adjust color as needed */
-    text-decoration: none;
+    text-decoration: none; /* Remove underline */
     font-size: 14px; /* Adjust font size as needed */
 }
 
-.account-link i {
+.account-link i,
+.shopping-bag-link i {
+    display: block;
+    margin: 0 auto 5px; /* Adjust margin as needed */
     font-size: 30px; /* Adjust icon size as needed */
 }
+.account-link {
+    right: 10px; /* Adjust as needed */
+}
 
+.shopping-bag-link {
+    right: 100px; /* Adjust as needed */
+}
+
+
+.logo {
+    float: left; /* Align the logo to the left */
+    position: absolute; /* Position the logo absolutely within the header */
+    top: 10px; /* Adjust the top position as needed */
+    left: 10px;
+}
+
+.logo img {
+    max-width: 100% !important; /* Ensure the logo image fills the container width */
+    max-height: 100px; /* Set a maximum height for the logo */
+}
+
+/* fixed top navbar only on medium and up */
+@media (min-width: 992px) {
+    .fixed-top-desktop-only {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+}
 
 .logo {
     float: left; /* Align the logo to the left */
@@ -106,5 +150,32 @@ nav ul li a:hover {
 .logo img {
     max-width: 100% !important; /* Ensure the logo image fills the container width */
     max-height: 120px; /* Set a maximum height for the logo */
-    height: auto; /* Maintain aspect ratio */
+}
+
+/* fixed top navbar only on medium and up */
+@media (min-width: 992px) {
+    .fixed-top-desktop-only {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+}
+
+@media (max-width: 767px) {
+    header h1 {
+        display: none;
+    }
+    .logo {
+        display: none;
+    }
+}
+
+/* Hide the header on medium screens */
+@media (min-width: 768px) and (max-width: 991px) {
+    .logo {
+        display: none;
+    }
+    
 }
