@@ -28,9 +28,10 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        {% for c in current_categories %}
-                            <li><a class="dropdown-item" href="{% url 'products' %}?category={{ c.name }}">{{ c.name }}</a></li>
-                        {% endfor %}
+                        <li><a class="dropdown-item" href="{% url 'shop' %}?category=treats">Treats</a></li>
+                        <li><a class="dropdown-item" href="{% url 'shop' %}?category=toys">Toys</a></li>
+                        <li><a class="dropdown-item" href="{% url 'shop' %}?category=grooming">Grooming</a></li>
+                        <li><a class="dropdown-item" href="{% url 'shop' %}?category=health">Health</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -43,3 +44,4 @@
         </div>
     </nav>
 </header>
+
