@@ -1,19 +1,25 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load static %}
 
-{% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
-{% endblock %}
-
 {% block content %}
-    <div class="overlay"></div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col text-center mt-3">
-                <h2 class="logo-font">Shop</h2>
-                
+    <h1>Our Shop</h1>
+    <div class="row">
+        {% for product in products %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    {% if product.image %}
+                        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}" style="width: 100%; height: 200px; object-fit: contain;">
+                    {% else %}
+                        <img src="{% static 'placeholder_image.jpg' %}" class="card-img-top" alt="Placeholder Image" style="width: 100%; height: 200px; object-fit: cover;">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">{{ product.description }}</p>
+                        <p class="card-text">Price: ${{ product.price }}</p>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}
