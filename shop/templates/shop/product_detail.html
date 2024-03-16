@@ -13,7 +13,7 @@
         {% if product.rating %}
           <p>Rating: {{ product.rating }}</p>
         {% endif %}
-        <form method="POST" action="{% url 'add_to_cart' product.id %}">
+        <form method="POST" action="{% url 'product_detail' product.id %}">
           {% csrf_token %}
           <button type="submit" class="btn btn-primary">Add to Cart</button>
         </form>

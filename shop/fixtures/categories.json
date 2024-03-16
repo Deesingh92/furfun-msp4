@@ -1,6 +1,6 @@
 [
     {
-        "model": "shop.category",
+        "model": "shop.Category",
         "pk": 1,
         "fields": {
             "name": "Treats",
@@ -8,7 +8,7 @@
         }
     },
     {
-        "model": "shop.category",
+        "model": "shop.Category",
         "pk": 2,
         "fields": {
             "name": "Toys",
@@ -16,7 +16,7 @@
         }
     },
     {
-        "model": "shop.category",
+        "model": "shop.Category",
         "pk": 3,
         "fields": {
             "name": "Grooming",
@@ -24,7 +24,7 @@
         }
     },
     {
-        "model": "shop.category",
+        "model": "shop.Category",
         "pk": 4,
         "fields": {
             "name": "Health",
