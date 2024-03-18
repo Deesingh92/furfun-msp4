@@ -9,7 +9,7 @@
             "description": "Delicious chicken jerky treats for dogs",
             "price": "9.99",
             "rating": "4.5",
-            "image": "media/dental_chew.jpeg"
+            "image": "media/chickenjerky.jpeg"
         }
     },
     {
@@ -35,7 +35,7 @@
             "description": "Chew sticks for promoting dental health in dogs",
             "price": "12.99",
             "rating": "4.8",
-            "image": ""
+            "image": "media/dental_chews.png"
         }
     },
     {
@@ -48,7 +48,7 @@
             "description": "Frisbee for throwing and training",
             "price": "8.99",
             "rating": "3.8",
-            "image": 'media/frisbee.jpeg"
+            "image": "media/frisbee.jpeg"
         }
     }
 ]
