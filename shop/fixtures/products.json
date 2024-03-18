@@ -9,7 +9,8 @@
             "description": "Delicious chicken jerky treats for dogs",
             "price": "9.99",
             "rating": "4.5",
-            "image": "media/chickenjerky.jpeg"
+            "image": "images/chickenjerky.jpeg",
+            "image_url": "/media/images/chickenjerky.jpeg"
         }
     },
     {
@@ -22,7 +23,8 @@
             "description": "Tasty salmon bites for cats",
             "price": "7.99",
             "rating": "4.2",
-            "image": "media/salmon_bites.png"
+            "image": "images/salmon_bites.png",
+            "image_url": "/media/images/salmon_bites.png"
         }
     },
     {
@@ -35,7 +37,8 @@
             "description": "Chew sticks for promoting dental health in dogs",
             "price": "12.99",
             "rating": "4.8",
-            "image": "media/dental_chews.png"
+            "image": "images/dental_chews.jpg",
+            "image_url": "/media/images/dental_chews.jpg"
         }
     },
     {
@@ -44,11 +47,26 @@
         "fields": {
             "category": 2,
             "sku": "FRI003",
-            "name": "Frisby",
+            "name": "Frisbee",
             "description": "Frisbee for throwing and training",
             "price": "8.99",
             "rating": "3.8",
-            "image": "media/frisbee.jpeg"
+            "image": "images/frisbee.jpg",
+            "image_url": "/media/images/frisbee.jpg"
+        }
+    },
+    {
+        "model": "shop.Product",
+        "pk": 5,
+        "fields": {
+            "category": 2,
+            "sku": "CHE001",
+            "name": "Dog Chew Toy",
+            "description": "Chew toy for playing and teething.",
+            "price": "6.99",
+            "rating": "4.1",
+            "image": "images/chewtoy.jpeg",
+            "image_url": "/media/images/chewtoy.jpeg"
         }
     }
 ]

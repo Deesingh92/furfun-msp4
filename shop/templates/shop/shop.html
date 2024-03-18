@@ -10,28 +10,24 @@
 {% endblock %}
 
 {% block content %}
-    <div class="overlay"></div>
     <div class="container">
         <div class="row">
             <div class="col text-center mt-3">
                 <h2 class="logo-font">Our Products</h2>
-                <hr class="w-50 mb-1">
             </div>
         </div>
         <div class="row justify-content-center">
             {% for product in products %}
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-4"> <!-- Adjust column width -->
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-4"> 
                     <div class="card product-card">
-                        <div class="text-center"> <!-- Center product content -->
-                            {% if product.image %}
-                                <a href="{% url 'product_detail' product.id %}">
+                        <div class="text-center"> 
+                            <a href="{% url 'product_detail' product.id %}">
+                                {% if product.image %}
                                     <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
-                                </a>
-                            {% else %}
-                                <a href="{% url 'product_detail' product.id %}">
-                                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}placeholder_image.jpg" alt="{{ product.name }}">
-                                </a>
-                            {% endif %}
+                                {% else %}
+                                    <img class="card-img-top img-fluid" src="{% static 'media/placeholder_image.jpg' %}" alt="{{ product.name }}">
+                                {% endif %}
+                            </a>
                             <div class="card-body">
                                 <h5 class="card-title">{{ product.name }}</h5> 
                                 <p class="lead mb-0">${{ product.price }}</p>
