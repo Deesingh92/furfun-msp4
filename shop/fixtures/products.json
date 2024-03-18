@@ -9,7 +9,7 @@
             "description": "Delicious chicken jerky treats for dogs",
             "price": "9.99",
             "rating": "4.5",
-            "image": "static/media/dental_chew.jpeg"
+            "image": "media/dental_chew.jpeg"
         }
     },
     {
@@ -22,7 +22,7 @@
             "description": "Tasty salmon bites for cats",
             "price": "7.99",
             "rating": "4.2",
-            "image": "static/media/salmon_bites.png"
+            "image": "media/salmon_bites.png"
         }
     },
     {
@@ -48,7 +48,7 @@
             "description": "Frisbee for throwing and training",
             "price": "8.99",
             "rating": "3.8",
-            "image": ""
+            "image": 'media/frisbee.jpeg"
         }
     }
 ]

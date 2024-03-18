@@ -28,16 +28,10 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        {% if categories %}
-                            {% for category in categories %}
-                                <li>Debug: Category: {{ category.name }}</li>
-                            {% endfor %}
-                        {% else %}
-                            <li>Debug: No categories found</li>
-                        {% endif %}
-                        {% for category in categories %}
-                            <li><a class="dropdown-item" href="{% url 'shop' %}?category={{ category.name }}">{{ category.friendly_name }}</a></li>
-                        {% endfor %}
+                            <li><a class="dropdown-item" href="{% url 'shop' %}?category=Treats">Treats</a></li>
+                            <li><a class="dropdown-item" href="{% url 'shop' %}?category=Toys">Toys</a></li>
+                            <li><a class="dropdown-item" href="{% url 'shop' %}?category=Grooming">Grooming</a></li>
+                            <li><a class="dropdown-item" href="{% url 'shop' %}?category=Health">Health</a></li>
                     </ul>                    
                 </li>
                 <li class="nav-item">
