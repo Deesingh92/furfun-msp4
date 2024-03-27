@@ -68,5 +68,106 @@
             "image": "images/chewtoy.jpeg",
             "image_url": "/media/images/chewtoy.jpeg"
         }
+    },
+    {
+        "model": "shop.Product",
+        "pk": 6,
+        "fields": {
+            "category": 2,
+            "sku": "CHE002",
+            "name": "Dog Squeak Toy",
+            "description": "Squeaky Dog Toys For Boredom - 3 Pack Durable Tough Puppy Toys Bundle Plush Soft Interactive Dogs Toy For Small Medium Large Dogs Cuddly Chew Proof Pet Toys.",
+            "price": "13.99",
+            "rating": "4",
+            "image": "images/squeektoy.jpg",
+            "image_url": "/media/images/squeektoy.jpg"
+        }
+    },
+    {
+        "model": "shop.Product",
+        "pk": 7,
+        "fields": {
+            "category": 3,
+            "sku": "BRU001",
+            "name": "Dog Brush",
+            "description": "A brush to clean excess hair and style pets fur, with automatic hair removal button",
+            "price": "6.99",
+            "rating": "4.4",
+            "image": "images/petbrush.jpg",
+            "image_url": "/media/images/petbrush.jpg"
+        }
+    },
+    {
+        "model": "shop.Product",
+        "pk": 8,
+        "fields": {
+            "category": 3,
+            "sku": "CON001",
+            "name": "Pet Conditioner",
+            "description": "Repairing Conditioner for Dogs with Damaged Hair- Perfect for Dry and Itchy Skin - Softens Coat & Adds Condition, 450ml",
+            "price": "8.99",
+            "rating": "4.4",
+            "image": "images/petconditioner.jpg",
+            "image_url": "/media/images/petconditioner.jpg"
+        }
+    },
+    {
+        "model": "shop.Product",
+        "pk": 9,
+        "fields": {
+            "category": 3,
+            "sku": "CLI001",
+            "name": "Pet Nail Clippers",
+            "description": "Dog Nail Clippers for Large, Medium and Small Breed Professional Pet Nail Clipper Suitable for Cats, Rabbits and Guinea Pigs With Safety Lock and Protective Guard to Avoid Over Cutting (6inch)",
+            "price": "7.95",
+            "rating": "4.7",
+            "image": "images/petclippers.jpg",
+            "image_url": "/media/images/petclippers.jpg"
+        }
+    },
+    {
+        "model": "shop.Product",
+        "pk": 10,
+        "fields": {
+            "category": 4,
+            "sku": "TAB001",
+            "name": "Dog Worming Tablets",
+            "description": "Tablets for Dogs up to 40kg | Kills All Common UK Intestinal Worms (Roundworms & Tapeworms) | Vet Strength Treatment | Pork-flavoured | 4 tablets",
+            "price": "12.95",
+            "rating": "4.8",
+            "image": "images/petworm.jpg",
+            "image_url": "/media/images/petworm.jpg"
+        }
+    },
+    {
+        "model": "shop.Product",
+        "pk": 11,
+        "fields": {
+            "category": 4,
+            "sku": "FLE001",
+            "name": "Dog Flea Treatment",
+            "description": "Dog Spot-On Repels Fleas, Plant-Based Parasite Protection, Contains Natural Herbal Extract Margosa, Up to 12 Weeks Protection, 3 Pipettes",
+            "price": "6.19",
+            "rating": "4.5",
+            "image": "images/petflea.jpg",
+            "image_url": "/media/images/petflea.jpg"
+        }
+    },
+    {
+        "model": "shop.Product",
+        "pk": 12,
+        "fields": {
+            "category": 4,
+            "sku": "GUT001",
+            "name": "Dog Gut Treatment",
+            "description": "Probiotic paste to support the gut 30ml + Syringe",
+            "price": "10.99",
+            "rating": "4.9",
+            "image": "images/petgut.jpg",
+            "image_url": "/media/images/petgut.jpg"
+        }
     }
+
+    
+
 ]
