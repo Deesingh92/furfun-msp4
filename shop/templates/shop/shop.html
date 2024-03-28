@@ -30,7 +30,7 @@
                             </a>
                             <div class="card-body">
                                 <h5 class="card-title">{{ product.name }}</h5> 
-                                <p class="lead mb-0">${{ product.price }}</p>
+                                <p class="lead mb-0">£{{ product.price }}</p>
                             </div>
                             <div class="card-footer bg-white pt-0 border-0">
                                 <a href="{% url 'product_detail' product.id %}" class="btn btn-sm btn-outline-primary">View Details</a>
