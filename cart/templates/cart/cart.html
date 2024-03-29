@@ -21,14 +21,14 @@
                 <td>{{ item.product.name }}</td>
                 <td>${{ item.product.price }}</td>
                 <td>{{ item.quantity }}</td>
-                <td>${{ item.get_item_total }}</td>
+                <td>£{{ item.get_item_total }}</td>
             </tr>
             {% endfor %}
         </tbody>
         <tfoot>
             <tr>
                 <td colspan="3" class="text-right">Total:</td>
-                <td>${{ cart_total }}</td>
+                <td>£{{ cart_total }}</td>
             </tr>
         </tfoot>
     </table>

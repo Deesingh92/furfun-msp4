@@ -95,6 +95,11 @@ AUTHENTICATION_BACKENDS = [
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-deesingh92-furfunmsp4-rp46otmsy7j.ws-eu110.gitpod.io',
+]
+
+
 SITE_ID = 1
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
