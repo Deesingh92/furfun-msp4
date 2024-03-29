@@ -10,30 +10,30 @@
                 <div class="col-12 my-auto">
                     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
+                            <div class="carousel-item active mt-2">
+                                <video width="100%" height="auto" autoplay>
+                                    <source src="{% static 'media/videos/treat_vid.mp4' %}" type="video/mp4">
+                                </video>
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h2 class="display-4 text-white fw-bold">Welcome to Fur Fun!</h2>
+                                    <p class="lead text-white">Your one-stop shop for all your pet needs.</p>
+                                    <a href="{% url 'shop' %}" class="btn btn-primary btn-lg">Explore Now</a>
+                                </div>
+                            </div>
+                            <div class="carousel-item mt-2">
                                 <img src="{% static 'media/dog.jpg' %}" class="d-block w-100" alt="...">
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h5>Welcome to Fur Fun!</h5>
-                                    <p>Your one-stop shop for all your pet needs.</p>
-                                    <a href="#" class="btn btn-primary">Shop Now</a>
+                                    <h2 class="display-4 text-white fw-bold">Welcome to Fur Fun!</h2>
+                                    <p class="lead text-white">Discover the best products for your furry friends.</p>
+                                    <a href="{% url 'shop' %}" class="btn btn-primary btn-lg">Shop Now</a>
                                 </div>
                             </div>
-                            <div class="carousel-item">
+                            <div class="carousel-item mt-2">
                                 <img src="{% static 'media/dog2.jpg' %}" class="d-block w-100" alt="...">
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h5>Welcome to Fur Fun!</h5>
-                                    <p>Your one-stop shop for all your pet needs.</p>
-                                    <a href="#" class="btn btn-primary">Shop Now</a>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <video width="100%" height="auto" autoplay>
-                                  <source src="{% static 'media/videos/treat_vid.mp4' %}" type="video/mp4">
-                                  </video>
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>Welcome to Fur Fun!</h5>
-                                    <p>Your one-stop shop for all your pet needs.</p>
-                                    <a href="#" class="btn btn-primary">Shop Now</a>
+                                    <h2 class="display-4 text-white fw-bold">Welcome to Fur Fun!</h2>
+                                    <p class="lead text-white">Find everything you need to pamper your pets.</p>
+                                    <a href="{% url 'shop' %}" class="btn btn-primary btn-lg">Get Started</a>
                                 </div>
                             </div>
                         </div>

@@ -1,33 +1,32 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% load crispy_forms_tags %}
 
-{% block title %}Checkout - Your Website Name{% endblock %}
+
+{% block title %}Checkout{% endblock %}
 
 {% block content %}
 
-<!-- Main Content -->
+
 <div class="container">
     <h1>Checkout</h1>
     <div class="row">
         <div class="col-md-6">
-            <!-- Billing Information Form -->
-            <form method="POST" action="{% url 'checkout' %}">
+            
+            <form method="post">
                 {% csrf_token %}
-                <!-- Billing Information Fields -->
-                <div class="mb-3">
-                    <label for="fullname" class="form-label">Full Name</label>
-                    <input type="text" class="form-control" id="fullname" name="fullname" required>
-                </div>
-                <!-- Other Billing Information Fields -->
-                
-                <button type="submit" class="btn btn-primary">Place Order</button>
+                {{ form.fullname|as_crispy_field }}
+                {{ form.email|as_crispy_field }}    
+                {{ form.address|as_crispy_field }} 
+                {{ form.phone_number|as_crispy_field }}
+                <button type="submit">Submit</button>
             </form>
+            
         </div>
         <div class="col-md-6">
-            <!-- Order Summary -->
+           
             <h2>Order Summary</h2>
-            <!-- Display Cart Items and Total -->
             {% for item in cart %}
                 <p>{{ item.product.name }} - {{ item.quantity }}</p>
             {% endfor %}
