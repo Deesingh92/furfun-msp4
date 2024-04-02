@@ -58,3 +58,12 @@ def product_detail(request, product_id):
     }
 
     return render(request, 'shop/product_detail.html', context)
+
+
+def add_product(request):
+    if request.method == 'POST':
+        product_name = request.POST.get('product_name')
+        Product.objects.create(name=product_name)
+        return redirect('product_list')
+    else:
+        return render(request, 'shop/add_product.html')

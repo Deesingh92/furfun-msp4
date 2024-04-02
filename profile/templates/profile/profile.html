@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>User Profiles</h1>
+    <div class="profiles-container">
+        {% if profiles %}
+            <ul>
+                {% for profile in profiles %}
+                    <li>
+                        <h2>{{ profile.user.username }}</h2>
+                        <p>Email: {{ profile.user.email }}</p>
+                        <!-- Add any other profile information you want to display here -->
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No profiles found.</p>
+        {% endif %}
+    </div>
+{% endblock %}
