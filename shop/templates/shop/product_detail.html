@@ -15,8 +15,9 @@
       {% endif %}
       <form method="POST" action="{% url 'add_to_cart' product.id %}">
         {% csrf_token %}
+        <input type="number" name="quantity" value="1" min="1">
         <button type="submit" class="btn btn-primary">Add to Cart</button>
-      </form>
+    </form>    
     </div>
   </div>
 </div>

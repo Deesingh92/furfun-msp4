@@ -8,7 +8,7 @@ def profile(request):
     context = {
         'user_profile': user_profile
     }
-    return render(request, 'profile.html', context)
+    return render(request, 'profile/profile.html', context)
 
 def order_history(request):
     orders = Order.objects.filter(user=request.user)
