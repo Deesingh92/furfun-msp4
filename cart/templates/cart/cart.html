@@ -15,20 +15,24 @@
                 <th>Total</th>
             </tr>
         </thead>
-        <tbody>
-            {% for item in request.user.cart.items.all %}
+        <tbody id="cart-items">
+            {% for item in cart.cart_items.all %}
             <tr>
                 <td>{{ item.product.name }}</td>
-                <td>${{ item.price }}</td>
+                <td>${{ item.product.price }}</td>
                 <td>{{ item.quantity }}</td>
-                <td>£{{ item.get_item_total }}</td>
+                <td>${{ item.get_item_total }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">Your cart is empty</td>
             </tr>
             {% endfor %}
         </tbody>
         <tfoot>
             <tr>
                 <td colspan="3" class="text-right">Total:</td>
-                <td>£{{ request.user.cart.get_cart_total }}</td>
+                <td>${{ cart.get_cart_total }}</td>
             </tr>
         </tfoot>
     </table>
