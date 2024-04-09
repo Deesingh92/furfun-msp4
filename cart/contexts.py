@@ -1,14 +1,8 @@
 from django.shortcuts import get_object_or_404
-from .models import Order
+from .models import Order, CartItem
 from shop.models import Product
 
-
 def cart_contents(request):
-    """
-    Ensures that the cart contents are available when rendering
-    every page.
-    """
-
     cart = request.session.get('cart', {})
     cart_items = []
     total = 0
@@ -23,6 +17,16 @@ def cart_contents(request):
             'quantity': quantity,
             'product': product,
         })
+
+    # Fetch cart items related to the current user, if using authentication
+    if request.user.is_authenticated:
+        user_cart_items = CartItem.objects.filter(cart__user=request.user)
+        for item in user_cart_items:
+            cart_items.append({
+                'item_id': item.product.id,
+                'quantity': item.quantity,
+                'product': item.product,
+            })
 
     return {
         'cart_items': cart_items,

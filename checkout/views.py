@@ -49,7 +49,7 @@ def checkout(request):
         'form': form,
         'cart': cart_contents(request),
         'stripe_public_key': settings.STRIPE_PUBLIC_KEY,
-        'client_secret': 'test client secret',  # Replace with actual client secret
+        'client_secret': 'test client secret',  
     }
 
     return render(request, template, context)

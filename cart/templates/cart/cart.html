@@ -13,29 +13,34 @@
                 <th>Price</th>
                 <th>Quantity</th>
                 <th>Total</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody id="cart-items">
-            {% for item in cart.cart_items.all %}
+            {% for item in cart_items %}
             <tr>
                 <td>{{ item.product.name }}</td>
-                <td>${{ item.product.price }}</td>
+                <td>£{{ item.product.price }}</td>
                 <td>{{ item.quantity }}</td>
-                <td>${{ item.get_item_total }}</td>
+                <td>£{{ item.get_item_total }}</td>
+                <td>
+                    <a href="{% url 'remove_from_cart' item.product.id %}" class="btn btn-danger">Remove</a>
+                </td>
             </tr>
             {% empty %}
             <tr>
-                <td colspan="4">Your cart is empty</td>
+                <td colspan="5">Your cart is empty</td>
             </tr>
             {% endfor %}
         </tbody>
         <tfoot>
             <tr>
                 <td colspan="3" class="text-right">Total:</td>
-                <td>${{ cart.get_cart_total }}</td>
+                <td colspan="2">£{{ cart_total }}</td>
             </tr>
         </tfoot>
     </table>
     <a href="{% url 'checkout' %}" class="btn btn-primary">Proceed to Checkout</a>
+    <a href="{% url 'clear_cart' %}" class="btn btn-danger">Clear Cart</a>
 </div>
 {% endblock %}
