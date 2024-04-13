@@ -1,17 +1,29 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from django.conf import settings
-from django.core.mail import send_mail
 
 from .forms import OrderForm
 from .models import Order, OrderLineItem
+from cart.models import Product  # Import Product model
 from cart.contexts import cart_contents
+from django.views.decorators.http import require_POST
+from django.http import HttpResponse
 
+@require_POST
+def cache_checkout_data(request):
+    try:
+        # Your code for caching checkout data
+        return HttpResponse(status=200)
+    except Exception as e:
+        messages.error(request, 'Sorry, your payment cannot be processed right now. Please try again later.')
+        return HttpResponse(content=e, status=400)
 
 def checkout(request):
     cart = request.session.get('cart', {})
+    print("Cart Contents:", cart)  # Debug print statement
     if not cart:
         messages.error(request, "There's nothing in your cart at the moment")
+        print("Redirecting to shop because cart is empty")  # Debug print statement
         return redirect(reverse('shop'))
 
     if request.method == 'POST':
@@ -20,24 +32,17 @@ def checkout(request):
             order = form.save(commit=False)
             order.save()
 
-            for item_id, quantity in cart.items():
-                try:
-                    product = Product.objects.get(id=item_id)
-                    order_line_item = OrderLineItem(
-                        order=order,
-                        product=product,
-                        quantity=quantity,
-                    )
-                    order_line_item.save()
-                except Product.DoesNotExist:
-                    messages.error(request, (
-                        "One of the products in your cart wasn't found in our database. "
-                        "Please contact us for assistance!")
-                    )
-                    order.delete()
-                    return redirect(reverse('view_cart'))
+            for product_id, quantity in cart.items():
+                product = Product.objects.get(id=product_id)
+                order_line_item = OrderLineItem(
+                    order=order,
+                    product=product,
+                    quantity=quantity,
+                )
+                order_line_item.save()
 
             request.session['save_info'] = 'save-info' in request.POST
+            del request.session['cart']  # Clear cart after checkout
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form. Please double check your information.')
@@ -54,18 +59,10 @@ def checkout(request):
 
     return render(request, template, context)
 
-
 def checkout_success(request, order_number):
-    """
-    Handle successful checkouts
-    """
-    save_info = request.session.get('save_info')
     order = Order.objects.get(order_number=order_number)
     messages.success(request, f'Order successfully processed! Your order number is {order_number}. '
                               f'A confirmation email will be sent to {order.email}.')
-
-    if 'cart' in request.session:
-        del request.session['cart']
 
     template = 'checkout/checkout_success.html'
     context = {

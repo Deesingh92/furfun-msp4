@@ -14,7 +14,6 @@ def shop(request):
     direction = None
 
     if request.GET:
-        # Sorting
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
             sort = sortkey

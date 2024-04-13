@@ -1,35 +1,14 @@
 from django.shortcuts import get_object_or_404
 from .models import Order, CartItem
 from shop.models import Product
+from .utils import get_or_create_cart
+
 
 def cart_contents(request):
-    cart = request.session.get('cart', {})
-    cart_items = []
-    total = 0
-    product_count = 0
-
-    for item_id, quantity in cart.items():
-        product = get_object_or_404(Product, pk=item_id)
-        total += quantity * product.price
-        product_count += quantity
-        cart_items.append({
-            'item_id': item_id,
-            'quantity': quantity,
-            'product': product,
-        })
-
-    # Fetch cart items related to the current user, if using authentication
-    if request.user.is_authenticated:
-        user_cart_items = CartItem.objects.filter(cart__user=request.user)
-        for item in user_cart_items:
-            cart_items.append({
-                'item_id': item.product.id,
-                'quantity': item.quantity,
-                'product': item.product,
-            })
-
+    cart = get_or_create_cart(request)
+    cart_items = cart.cart_items.all()
+    cart_total = sum(item.get_item_total() for item in cart_items)
     return {
         'cart_items': cart_items,
-        'total': total,
-        'product_count': product_count,
+        'cart_total': cart_total,
     }

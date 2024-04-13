@@ -26,9 +26,9 @@ SECRET_KEY = 'django-insecure-c(9g(23j!^3!gm4@32=(-q_e!rje(4de7gu_)g#=$hoq_*h(p!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-deesingh92-furfunmsp4-cb71lrwkedd.ws-eu110.gitpod.io']
+ALLOWED_HOSTS = ['8000-deesingh92-furfunmsp4-ioffzkboz8x.ws-eu110.gitpod.io']
 
-STRIPE_PUBLIC_KEY = 'we_1OpsueB5phbCekX8dM5LKLOu'
+
 
 # Application definition
 
@@ -98,7 +98,7 @@ AUTHENTICATION_BACKENDS = [
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-deesingh92-furfunmsp4-cb71lrwkedd.ws-eu110.gitpod.io',
+    'https://8000-deesingh92-furfunmsp4-ioffzkboz8x.ws-eu110.gitpod.io',
 ]
 
 
@@ -174,3 +174,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Stripe
+FREE_DELIVERY_THRESHOLD = 50
+STANDARD_DELIVERY_PERCENTAGE = 10
+STRIPE_CURRENCY = 'gbp'
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', 'we_1OpsueB5phbCekX8dM5LKLOu')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
+STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', 'whsec_igMIw8T1qW1nixwKE4WOz8iWBsSXrX2w')
+DEFAULT_FROM_EMAIL = 'boutiqueado@example.com'

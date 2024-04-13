@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Thank You for Your Order!</h1>
+    <p>Your order has been successfully processed.</p>
+    
+    <h2>Order Details</h2>
+    <p>Order Number: {{ order.order_number }}</p>
+    <p>Order Date: {{ order.date }}</p>
+    
+    <h2>Order Items</h2>
+    <ul>
+        {% for item in order.orderlineitem_set.all %}
+            <li>{{ item.product.name }} - Quantity: {{ item.quantity }} - Price: {{ item.product.price }}</li>
+        {% endfor %}
+    </ul>
+    
+    <h2>Total Amount: {{ order.get_total }}</h2>
+    
+    <p>A confirmation email will be sent to {{ order.email }}.</p>
+{% endblock %}
