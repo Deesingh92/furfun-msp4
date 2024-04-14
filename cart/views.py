@@ -61,10 +61,8 @@ def cart_detail(request):
         cart = Cart.objects.get(id=cart_id)
         cart_items = cart.cart_items.all()
         cart_total = sum(item.get_item_total() for item in cart_items)
-        print("Cart Contents:", cart_items)  # Print cart items
-        print("Cart Total:", cart_total)  # Print cart total
+
+        
         return render(request, 'cart/cart.html', {'cart_items': cart_items, 'cart_total': cart_total})
     else:
-        # Handle case where cart is empty or not found in session
-        print("Session Cart ID not found or cart is empty")
         return redirect('shop')

@@ -4,7 +4,7 @@ from django.conf import settings
 
 from .forms import OrderForm
 from .models import Order, OrderLineItem
-from cart.models import Product  # Import Product model
+from cart.models import Product 
 from cart.contexts import cart_contents
 from django.views.decorators.http import require_POST
 from django.http import HttpResponse
@@ -20,10 +20,8 @@ def cache_checkout_data(request):
 
 def checkout(request):
     cart = request.session.get('cart', {})
-    print("Cart Contents:", cart)  # Debug print statement
     if not cart:
         messages.error(request, "There's nothing in your cart at the moment")
-        print("Redirecting to shop because cart is empty")  # Debug print statement
         return redirect(reverse('shop'))
 
     if request.method == 'POST':
@@ -51,7 +49,7 @@ def checkout(request):
 
     template = 'checkout/checkout.html'
     context = {
-        'form': form,
+        'order_form': form,
         'cart': cart_contents(request),
         'stripe_public_key': settings.STRIPE_PUBLIC_KEY,
         'client_secret': 'test client secret',  
