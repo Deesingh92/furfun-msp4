@@ -3,6 +3,7 @@ from django.contrib import messages
 from .models import Product, CartItem, Cart
 from django.contrib.auth.decorators import login_required
 from .utils import get_or_create_cart
+from decimal import Decimal
 
 def view_cart(request):
     print("User:", request.user)
@@ -60,9 +61,8 @@ def cart_detail(request):
     if cart_id:
         cart = Cart.objects.get(id=cart_id)
         cart_items = cart.cart_items.all()
-        cart_total = sum(item.get_item_total() for item in cart_items)
 
         
-        return render(request, 'cart/cart.html', {'cart_items': cart_items, 'cart_total': cart_total})
+        return render(request, 'cart/cart.html', {'cart_items': cart_items})
     else:
         return redirect('shop')

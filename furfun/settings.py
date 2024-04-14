@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-c(9g(23j!^3!gm4@32=(-q_e!rje(4de7gu_)g#=$hoq_*h(p!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-deesingh92-furfunmsp4-ioffzkboz8x.ws-eu110.gitpod.io']
+ALLOWED_HOSTS = ['8000-deesingh92-furfunmsp4-0h642wfljgc.ws-eu110.gitpod.io']
 
 
 
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'checkout',
     'cart',
     'profile',
+    'about',
 
      # Other
     'crispy_forms',
@@ -78,9 +79,10 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request', # required by allauth
+                'django.template.context_processors.request', 
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.contexts.cart_contents', 
             ],
         },
     },
@@ -98,7 +100,7 @@ AUTHENTICATION_BACKENDS = [
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-deesingh92-furfunmsp4-ioffzkboz8x.ws-eu110.gitpod.io',
+    'https://8000-deesingh92-furfunmsp4-0h642wfljgc.ws-eu110.gitpod.io',
 ]
 
 
