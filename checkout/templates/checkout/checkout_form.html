@@ -1,72 +1,113 @@
+
+{% load static %}
 {% load crispy_forms_tags %}
 
-<div class="row">
-    <!-- Checkout Form -->
-    <div class="col-md-6">
-        <h2>Checkout</h2>
-        <form action="{% url 'checkout' %}" method="POST" id="checkout-form">
-            {% csrf_token %}
-            <!-- Full Name -->
-            <div class="form-group">
-                <label for="id_full_name">Full Name:</label>
-                {{ order_form.full_name }}
-            </div>
-            <!-- Email -->
-            <div class="form-group">
-                <label for="id_email">Email:</label>
-                {{ order_form.email }}
-            </div>
-            <!-- Phone Number -->
-            <div class="form-group">
-                <label for="id_phone_number">Phone Number:</label>
-                {{ order_form.phone_number }}
-            </div>
-            <!-- Country -->
-            <div class="form-group">
-                <label for="id_country">Country:</label>
-                {{ order_form.country }}
-            </div>
-            <!-- Postcode -->
-            <div class="form-group">
-                <label for="id_postcode">Postcode:</label>
-                {{ order_form.postcode }}
-            </div>
-            <!-- Town or City -->
-            <div class="form-group">
-                <label for="id_town_or_city">Town or City:</label>
-                {{ order_form.town_or_city }}
-            </div>
-            <!-- Street Address 1 -->
-            <div class="form-group">
-                <label for="id_street_address1">Street Address 1:</label>
-                {{ order_form.street_address1 }}
-            </div>
-            <!-- Street Address 2 -->
-            <div class="form-group">
-                <label for="id_street_address2">Street Address 2:</label>
-                {{ order_form.street_address2 }}
-            </div>
-            <!-- County -->
-            <div class="form-group">
-                <label for="id_county">County (optional):</label>
-                {{ order_form.county }}
-            </div>
-            <!-- Save Info Checkbox -->
-            <div class="form-check">
-                {{ order_form.save_info }}
-                <label for="id_save_info" class="form-check-label">Save this delivery information to my profile</label>
-            </div>
-            <!-- Submit Button -->
-            <button type="submit" class="btn btn-primary">Complete Order</button>
-        </form>
-    </div>
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
 
-    <!-- Order Summary -->
-    <div class="col-md-6">
-        <h2>Order Summary</h2>
-        <p>Order Number: {{ order.order_number }}</p>
-        <p>Order Total: {{ order.order_total }}</p>
-        <p>Delivery Cost: {{ order.delivery_cost }}</p>
-        <p>Grand Total: {{ order.grand_total }}</p>
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
     </div>
-</div>
+{% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <!-- Checkout Form -->
+            <div class="col-md-6">
+                <h2>Checkout</h2>
+                <form action="{% url 'checkout' %}" method="POST" id="checkout-form">
+                    {% csrf_token %}
+                    <!-- Full Name -->
+                    <div class="form-group">
+                        <label for="id_full_name">Full Name:</label>
+                        {{ order_form.full_name }}
+                    </div>
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="id_email">Email:</label>
+                        {{ order_form.email }}
+                    </div>
+                    <!-- Phone Number -->
+                    <div class="form-group">
+                        <label for="id_phone_number">Phone Number:</label>
+                        {{ order_form.phone_number }}
+                    </div>
+                    <!-- Country -->
+                    <div class="form-group">
+                        <label for="id_country">Country:</label>
+                        {{ order_form.country }}
+                    </div>
+                    <!-- Postcode -->
+                    <div class="form-group">
+                        <label for="id_postcode">Postcode:</label>
+                        {{ order_form.postcode }}
+                    </div>
+                    <!-- Town or City -->
+                    <div class="form-group">
+                        <label for="id_town_or_city">Town or City:</label>
+                        {{ order_form.town_or_city }}
+                    </div>
+                    <!-- Street Address 1 -->
+                    <div class="form-group">
+                        <label for="id_street_address1">Street Address 1:</label>
+                        {{ order_form.street_address1 }}
+                    </div>
+                    <!-- Street Address 2 -->
+                    <div class="form-group">
+                        <label for="id_street_address2">Street Address 2:</label>
+                        {{ order_form.street_address2 }}
+                    </div>
+                    <!-- County -->
+                    <div class="form-group">
+                        <label for="id_county">County (optional):</label>
+                        {{ order_form.county }}
+                    </div>
+                    <!-- Save Info Checkbox -->
+                    <div class="form-check">
+                        {{ order_form.save_info }}
+                        <label for="id_save_info" class="form-check-label">Save this delivery information to my profile</label>
+                    </div>
+                    <!-- Submit Button -->
+                    <button type="button" id="complete-order-btn" class="btn btn-primary">Complete Order</button>
+                </form>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="col-md-6">
+                <h2>Order Summary</h2>
+                <p>Order Number: {{ order.order_number }}</p>
+                <p>Order Total: {{ order.order_total }}</p>
+                <p>Delivery Cost: {{ order.delivery_cost }}</p>
+                <p>Grand Total: {{ order.grand_total }}</p>
+            </div>
+        </div>
+    </div>
+    <div id="loading-overlay">
+        <h1 class="text-light logo-font loading-spinner">
+            <span class="icon">
+                <i class="fas fa-3x fa-sync-alt fa-spin"></i>
+            </span>
+        </h1>
+    </div>
+{% endblock %}
+
+{% block postloadjs %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#complete-order-btn').click(function() {
+                // Disable the button to prevent multiple submissions
+                $(this).prop('disabled', true);
+
+                // Submit the form
+                $('#checkout-form').submit();
+            });
+        });
+    </script>
+{% endblock %}
