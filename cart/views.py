@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from django.contrib import messages
 from .models import Product, CartItem, Cart
 from django.contrib.auth.decorators import login_required
@@ -15,15 +15,23 @@ def view_cart(request):
 def add_to_cart(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     cart = get_or_create_cart(request)
+
+    # Check if quantity is specified in the request
+    quantity = int(request.POST.get('quantity', 1))
+
     cart_item, created = CartItem.objects.get_or_create(cart=cart, product=product)
 
     if not created:
-        cart_item.quantity += 1
+        # Increment quantity by the specified amount
+        cart_item.quantity += quantity
         cart_item.save()
         messages.success(request, f'Updated {product.name} quantity to {cart_item.quantity}')
     else:
-        messages.success(request, f'Added {product.name} to your cart')
-    
+        # Set quantity to the specified amount
+        cart_item.quantity = quantity
+        cart_item.save()
+        messages.success(request, f'Added {quantity} {product.name}(s) to your cart')
+
     # Update session cart
     request.session['cart'] = cart.id
 

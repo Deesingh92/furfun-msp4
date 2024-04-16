@@ -244,3 +244,48 @@ nav ul li a:hover {
     color: #666;
     margin-bottom: 10px;
 }
+
+
+.toast-container {
+    position: fixed;
+    top: 20px; /* Adjust the top position as needed */
+    right: 20px; /* Adjust the right position as needed */
+    z-index: 1000; /* Ensure the toast appears above other content */
+}
+
+.toast {
+    background-color: #f8d7da; 
+    border-color: #f5c6cb; /* Dark red for error */
+    color: #721c24; /* Dark text color */
+}
+
+.toast.toast-success {
+    background-color: #d4edda; /* Light green for success */
+    border-color: #c3e6cb; /* Dark green for success */
+    color: #155724; /* Dark text color */
+}
+
+.toast.toast-warning {
+    background-color: #fff3cd; /* Light yellow for warning */
+    border-color: #ffeeba; /* Dark yellow for warning */
+    color: #856404; /* Dark text color */
+}
+
+.toast.toast-info {
+    background-color: #d1ecf1; /* Light blue for info */
+    border-color: #bee5eb; /* Dark blue for info */
+    color: #0c5460; /* Dark text color */
+}
+
+
+.toast-header {
+    display: flex;
+    justify-content: flex-start; /* Align items to the left */
+    background-color: #f8f8f8; /* Light red for error */
+    border-color: #f5c6cb; /* Dark red for error */
+    color: #721c24; /* Dark text color */
+}
+
+.toast-header .me-auto {
+    margin-right: auto; /* Push the title to the left */
+}

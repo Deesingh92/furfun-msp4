@@ -1,6 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, HttpResponse
 from .models import Product, Category
 from django.db.models.functions import Lower
+
 
 def shop(request):
     """ A view to show all products """
