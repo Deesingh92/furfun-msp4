@@ -57,3 +57,10 @@ h2 {
 .custom-form button:hover {
     background-color: #0056b3;
 }
+
+.order-summary-container {
+    background-color: #404040; /* Slate grey background */
+    color: #fff; /* White text */
+    padding: 20px;
+    margin-bottom: 20px;
+}

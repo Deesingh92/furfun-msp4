@@ -19,7 +19,6 @@
         <div class="row">
             <!-- Checkout Form -->
             <div class="col-md-6">
-                <h2>Checkout</h2>
                 <form action="{% url 'checkout' %}" method="POST" id="checkout-form">
                     {% csrf_token %}
                     {% crispy order_form %}
@@ -36,11 +35,13 @@
 
             <!-- Order Summary -->
             <div class="col-md-6">
-                <h2>Order Summary</h2>
-                <p>Order Number: {{ latest_order.order_number }}</p>
-                <p>Order Total: £{{ cart_total|floatformat:2 }}</p>
-                <p>Delivery Cost: {{ latest_order.delivery_cost }}</p>
-                <p>Grand Total: £{{ cart_total|floatformat:2 }}</p>
+                <div class="order-summary-container"> 
+                    <h2>Order Summary</h2>
+                    <p>Order Number: {{ latest_order.order_number }}</p>
+                    <p>Order Total: £{{ cart_total|floatformat:2 }}</p>
+                    <p>Delivery Cost: {{ latest_order.delivery_cost }}</p>
+                    <p>Grand Total: £{{ cart_total|floatformat:2 }}</p>
+                </div>
             </div>
         </div>
     </div>
