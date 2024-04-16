@@ -69,10 +69,14 @@ def checkout(request):
     else:
         form = OrderForm()
 
+    # Fetch the latest order from the database
+    latest_order = Order.objects.last()
+
     template = 'checkout/checkout.html'
     context = {
         'order_form': form,
         'cart': cart_contents(request),
+        'latest_order': latest_order,  # Pass the latest order to the template
     }
 
     return render(request, template, context)
