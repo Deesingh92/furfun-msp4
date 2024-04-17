@@ -20,6 +20,7 @@ class Order(models.Model):
     delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
     order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
 
     def _generate_order_number(self):
         """
@@ -32,25 +33,23 @@ class Order(models.Model):
         Update grand total each time a line item is added,
         accounting for delivery costs.
         """
-        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum']
-        if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
-            self.delivery_cost = self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
+        # Calculate the total of all line items
+        order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum']
+        
+        # Calculate delivery cost
+        if order_total is not None and order_total < settings.FREE_DELIVERY_THRESHOLD:
+            delivery_cost = order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
         else:
-            self.delivery_cost = 0
-        self.grand_total = self.order_total + self.delivery_cost
+            delivery_cost = 0
+        
+        # Calculate grand total
+        grand_total = (order_total or 0) + delivery_cost
+        
+        # Update the order instance with new totals
+        self.order_total = order_total or 0
+        self.delivery_cost = delivery_cost
+        self.grand_total = grand_total
         self.save()
-
-    def save(self, *args, **kwargs):
-        """
-        Override the original save method to set the order number
-        if it hasn't been set already.
-        """
-        if not self.order_number:
-            self.order_number = self._generate_order_number()
-        super().save(*args, **kwargs)
-
-    def __str__(self):
-        return self.order_number
 
 
 class OrderLineItem(models.Model):

@@ -10,8 +10,6 @@ def cart_contents(request):
         cart_items = cart.cart_items.all()
         cart_total = sum(item.get_item_total() for item in cart_items)
     except Exception as e:
-        # Log or handle the exception appropriately
-        print(f"An error occurred: {e}")
         cart_items = []
         cart_total = 0
     

@@ -23,12 +23,10 @@
                     {% csrf_token %}
                     {% crispy order_form %}
 
-                    <!-- Save Info Checkbox -->
                     <div class="form-check">
                         {{ order_form.save_info }}
                         <label for="id_save_info" class="form-check-label">Save this delivery information to my profile</label>
                     </div>
-                    <!-- Submit Button -->
                     <button type="submit" id="complete-order-btn" class="btn btn-primary">Complete Order</button>
                 </form>
             </div>
@@ -67,10 +65,7 @@
     <script>
         $(document).ready(function() {
             $('#complete-order-btn').click(function() {
-                // Disable the button to prevent multiple submissions
                 $(this).prop('disabled', true);
-
-                // Submit the form
                 $('#checkout-form').submit();
             });
         });
