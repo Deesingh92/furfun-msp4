@@ -248,9 +248,10 @@ nav ul li a:hover {
 
 .toast-container {
     position: fixed;
-    top: 20px; /* Adjust the top position as needed */
-    right: 100px; /* Adjust the right position as needed */
-    z-index: 1000; /* Ensure the toast appears above other content */
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    flex-direction: column-reverse;
 }
 
 
@@ -258,6 +259,10 @@ nav ul li a:hover {
     background-color: #f8d7da; 
     border-color: #f5c6cb; /* Dark red for error */
     color: #721c24; /* Dark text color */
+    width: 350px;
+    position: relative;
+    margin-left: auto;
+    margin-bottom: 15px;
 }
 
 .toast.toast-success {
