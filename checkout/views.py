@@ -6,7 +6,9 @@ from .models import Order, OrderLineItem
 from cart.models import Product 
 from cart.contexts import cart_contents
 from django.views.decorators.http import require_POST
-from django.http import HttpResponse
+import stripe
+
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 @require_POST
 def cache_checkout_data(request):
@@ -31,16 +33,17 @@ def checkout(request):
                 order.save()
 
                 order_items = []
+                total_amount = 0
+
                 for product_id, quantity in cart.items():
                     try:
                         product = Product.objects.get(id=product_id)
+                        total_amount += product.price * quantity
                         order_items.append(OrderLineItem(order=order, product=product, quantity=quantity))
                     except Product.DoesNotExist:
                         messages.warning(request, f'Product with ID {product_id} does not exist.')
 
                 OrderLineItem.objects.bulk_create(order_items)
-
-                total_amount = sum(product.price * quantity for product_id, quantity in cart.items())
 
                 session = stripe.checkout.Session.create(
                     payment_method_types=['card'],
@@ -51,7 +54,7 @@ def checkout(request):
                                 'product_data': {
                                     'name': 'Your Product Name',
                                 },
-                                'unit_amount': total_amount * 100,
+                                'unit_amount': int(total_amount * 100),  # Stripe expects amount in cents
                             },
                             'quantity': 1,
                         },
@@ -69,14 +72,14 @@ def checkout(request):
     else:
         form = OrderForm()
 
-    # Fetch the latest order from the database
     latest_order = Order.objects.last()
 
     template = 'checkout/checkout.html'
     context = {
         'order_form': form,
         'cart': cart_contents(request),
-        'latest_order': latest_order,  # Pass the latest order to the template
+        'latest_order': latest_order,
+        'stripe_public_key': settings.STRIPE_PUBLIC_KEY,
     }
 
     return render(request, template, context)

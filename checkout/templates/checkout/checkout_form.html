@@ -23,11 +23,6 @@
                     {% csrf_token %}
                     {% crispy order_form %}
 
-                    <div class="form-check">
-                        {{ order_form.save_info }}
-                        <label for="id_save_info" class="form-check-label">Save this delivery information to my profile</label>
-                    </div>
-                    <button type="submit" id="complete-order-btn" class="btn btn-primary">Complete Order</button>
                 </form>
             </div>
 
@@ -43,14 +38,26 @@
             </div>
         </div>
     </div>
+
     <!-- Stripe Payment Element Container -->
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <div id="stripe-payment-element"></div>
+                <div id="card-element"></div> <!-- Update ID to match JavaScript -->
+                <div id="card-errors" role="alert"></div>
             </div>
         </div>
     </div>
+    
+    <!-- Complete Order Button -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <button type="button" id="complete-order-btn" class="btn btn-primary">Complete Order</button>
+            </div>
+        </div>
+    </div>
+
     <div id="loading-overlay">
         <h1 class="text-light logo-font loading-spinner">
             <span class="icon">
@@ -61,12 +68,14 @@
 {% endblock %}
 
 {% block postloadjs %}
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
     <script>
-        $(document).ready(function() {
-            $('#complete-order-btn').click(function() {
-                $(this).prop('disabled', true);
-                $('#checkout-form').submit();
+        document.addEventListener('DOMContentLoaded', function() {
+            var completeOrderBtn = document.getElementById('complete-order-btn');
+            completeOrderBtn.addEventListener('click', function() {
+                document.getElementById('checkout-form').submit();
             });
         });
     </script>

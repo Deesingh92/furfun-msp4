@@ -1,123 +1,50 @@
-from django.http import HttpResponse
-from django.core.mail import send_mail
-from django.template.loader import render_to_string
+import logging
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import stripe
 from django.conf import settings
 
-from .models import Order, OrderLineItem
+# Configure logging
+logger = logging.getLogger(__name__)
 
-import json
-import time
-import stripe
+# Set the Stripe API key
+stripe.api_key = settings.STRIPE_SECRET_KEY
+
+@csrf_exempt
+def webhook(request):
+    payload = request.body
+    sig_header = request.headers.get('Stripe-Signature', None)
+
+    try:
+        event = stripe.Webhook.construct_event(
+            payload, sig_header, settings.STRIPE_ENDPOINT_SECRET
+        )
+    except ValueError as e:
+        # Invalid payload
+        logger.error("Invalid payload: %s", e)
+        return JsonResponse({'error': 'Invalid payload'}, status=400)
+    except stripe.error.SignatureVerificationError as e:
+        # Invalid signature
+        logger.error("Invalid signature: %s", e)
+        return JsonResponse({'error': 'Invalid signature'}, status=400)
+
+    # Handle the event
+    if event['type'] == 'payment_intent.succeeded':
+        payment_intent = event['data']['object']
+        # Perform actions based on payment success
+        logger.info("Payment succeeded: %s", payment_intent)
+    elif event['type'] == 'payment_intent.payment_failed':
+        payment_intent = event['data']['object']
+        # Perform actions based on payment failure
+        logger.warning("Payment failed: %s", payment_intent)
+
+
+    return JsonResponse({'message': 'Webhook received successfully'}, status=200)
 
 class StripeWH_Handler:
-    """Handle Stripe webhooks"""
-
     def __init__(self, request):
         self.request = request
 
-    def _send_confirmation_email(self, order):
-        """Send the user a confirmation email"""
-        cust_email = order.email
-        subject = render_to_string(
-            'checkout/confirmation_emails/confirmation_email_subject.txt',
-            {'order': order})
-        body = render_to_string(
-            'checkout/confirmation_emails/confirmation_email_body.txt',
-            {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
-        
-        send_mail(
-            subject,
-            body,
-            settings.DEFAULT_FROM_EMAIL,
-            [cust_email]
-        )        
-
     def handle_event(self, event):
-        """
-        Handle a generic/unknown/unexpected webhook event
-        """
-        return HttpResponse(
-            content=f'Unhandled webhook received: {event["type"]}',
-            status=200)
-
-    def handle_payment_intent_succeeded(self, event):
-        """
-        Handle the payment_intent.succeeded webhook from Stripe
-        """
-        intent = event.data.object
-        pid = intent.id
-        # You may need to modify the following lines to fit your application's logic
-        bag = intent.metadata.bag
-        save_info = intent.metadata.save_info
-
-        # Get the Charge object
-        stripe_charge = stripe.Charge.retrieve(
-            intent.latest_charge
-        )
-
-        # You may need to modify the following lines to fit your application's logic
-        billing_details = stripe_charge.billing_details 
-        shipping_details = intent.shipping
-        grand_total = round(stripe_charge.amount / 100, 2) 
-
-        # Clean data in the shipping details
-        for field, value in shipping_details.address.items():
-            if value == "":
-                shipping_details.address[field] = None
-
-        # Create or update the order
-        order = None
-        try:
-            order = Order.objects.create(
-                full_name=shipping_details.name,
-                email=billing_details.email,
-                phone_number=shipping_details.phone,
-                country=shipping_details.address.country,
-                postcode=shipping_details.address.postal_code,
-                town_or_city=shipping_details.address.city,
-                street_address1=shipping_details.address.line1,
-                street_address2=shipping_details.address.line2,
-                county=shipping_details.address.state,
-                original_bag=bag,
-                stripe_pid=pid,
-            
-            )
-
-            for item_id, item_data in json.loads(bag).items():
-                product = Product.objects.get(id=item_id)
-                if isinstance(item_data, int):
-                    order_line_item = OrderLineItem(
-                        order=order,
-                        product=product,
-                        quantity=item_data,
-                    )
-                    order_line_item.save()
-                else:
-                    for size, quantity in item_data['items_by_size'].items():
-                        order_line_item = OrderLineItem(
-                            order=order,
-                            product=product,
-                            quantity=quantity,
-                            product_size=size,
-                        )
-                        order_line_item.save()
-        except Exception as e:
-            if order:
-                order.delete()
-            return HttpResponse(
-                content=f'Webhook received: {event["type"]} | ERROR: {e}',
-                status=500)
-
-        self._send_confirmation_email(order)
-
-        return HttpResponse(
-            content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
-            status=200)
-
-    def handle_payment_intent_payment_failed(self, event):
-        """
-        Handle the payment_intent.payment_failed webhook from Stripe
-        """
-        return HttpResponse(
-            content=f'Webhook received: {event["type"]}',
-            status=200)
+        # Handle Stripe webhook event
+        return HttpResponse(status=200)
