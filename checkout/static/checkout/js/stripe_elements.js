@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var stripePublicKey = $('#stripe_public_key').val();
+    var stripePublicKey = '{{ stripe_public_key }}'; 
     var clientSecret = $('#client_secret').val();
     var stripe = Stripe(stripePublicKey);
     var elements = stripe.elements();
@@ -107,4 +107,3 @@ $(document).ready(function() {
         });
     });
 });
-

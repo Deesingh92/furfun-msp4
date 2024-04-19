@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, HttpResponse
+from django.shortcuts import render, get_object_or_404, HttpResponse, redirect
 from .models import Product, Category
 from django.db.models.functions import Lower
 
@@ -63,7 +63,11 @@ def product_detail(request, product_id):
 def add_product(request):
     if request.method == 'POST':
         product_name = request.POST.get('product_name')
-        Product.objects.create(name=product_name)
-        return redirect('product_list')
+        price = request.POST.get('price')
+        if product_name and price:
+            Product.objects.create(name=product_name, price=price)
+            return redirect('shop')
+        else:
+            return HttpResponse('Product name and price are required.')
     else:
         return render(request, 'shop/add_product.html')

@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Add Product - My Website{% endblock %}
 
 {% block content %}
-    <h2>Add a New Product</h2>
+<div class="form-container">
+    <hr>
+    <h2 class="form-title">Add a New Product</h2>
+    <hr>
     <form method="post">
         {% csrf_token %}
         <label for="product_name">Product Name:</label><br>
@@ -14,6 +18,13 @@
         <input type="number" id="price" name="price" value="{{ price }}"><br><br>
         <label for="stock">Stock:</label><br>
         <input type="number" id="stock" name="stock" value="{{ stock }}"><br><br>
+        <!-- Image Section -->
+        <label for="image">Image:</label><br>
+        <input type="file" id="image" name="image"><br><br>
+        <!-- Image URL -->
+        <label for="image_url">Image URL:</label><br>
+        <input type="text" id="image_url" name="image_url" value="{{ image_url }}"><br><br>
         <button type="submit">Add Product</button>
     </form>
+</div>
 {% endblock %}

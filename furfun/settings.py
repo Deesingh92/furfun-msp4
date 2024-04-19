@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-c(9g(23j!^3!gm4@32=(-q_e!rje(4de7gu_)g#=$hoq_*h(p!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-deesingh92-furfunmsp4-45p8a7m9tsp.ws-eu110.gitpod.io']
+ALLOWED_HOSTS = ['8000-deesingh92-furfunmsp4-tstyd7kq6iz.ws-eu110.gitpod.io']
 
 
 
@@ -106,7 +106,7 @@ AUTHENTICATION_BACKENDS = [
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-deesingh92-furfunmsp4-45p8a7m9tsp.ws-eu110.gitpod.io',
+    'https://8000-deesingh92-furfunmsp4-tstyd7kq6iz.ws-eu110.gitpod.io',
 ]
 
 
