@@ -13,7 +13,10 @@ def cart_contents(request):
         cart_items = []
         cart_total = 0
     
+    grand_total = cart_total 
+    
     return {
         'cart_items': cart_items,
         'cart_total': cart_total,
+        'grand_total': grand_total,
     }

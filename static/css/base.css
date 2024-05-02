@@ -376,3 +376,11 @@ nav ul li a:hover {
         width: 90%;
     }
 }
+
+
+.about-section p,
+        .highlight-item {
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
