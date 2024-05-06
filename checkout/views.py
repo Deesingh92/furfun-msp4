@@ -7,6 +7,7 @@ from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 from cart.models import Product 
 from cart.contexts import cart_contents
+from cart.views import clear_cart
 from django.views.decorators.http import require_POST
 from django.http import HttpResponse
 import stripe
@@ -24,15 +25,17 @@ def cache_checkout_data(request):
         })
         return HttpResponse(status=200)
     except Exception as e:
-        messages.error(request, 'Sorry, your payment cannot be processed right now. Please try again later.')
+        messages.error(request, ('Sorry, your payment cannot be '
+                                 'processed right now. Please try '
+                                 'again later.'))
         return HttpResponse(content=e, status=400)
 
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
-    order_number = None
 
     try:
+        # Create PaymentIntent outside the try-except block
         cart = request.session.get('cart', {})
         current_cart = cart_contents(request)
         total = current_cart['grand_total']
@@ -43,10 +46,12 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
     except Exception as e:
+        # Handle Stripe errors
         messages.error(request, f"An error occurred while creating PaymentIntent: {str(e)}")
         intent = None
 
     if request.method == 'POST':
+        # Handle form submission
         cart = request.session.get('cart', {})
         form_data = {
             'full_name': request.POST['full_name'],
@@ -62,19 +67,25 @@ def checkout(request):
 
         order_form = OrderForm(form_data)
         if order_form.is_valid():
+            # Process the form data
             pid = request.POST.get('client_secret').split('_secret')[0]
             order = order_form.save(commit=False)
             order.stripe_pid = pid
             order.original_bag = json.dumps(cart)
             order.save()
 
+            # Set the order_number
             order_number = order.order_number
 
+            # Process the cart items and create OrderLineItem instances
             if isinstance(cart, dict):
                 for item_id, item_data in cart.items():
                     try:
                         product = Product.objects.get(id=item_id)
-                        quantity = item_data if isinstance(item_data, int) else item_data['quantity']
+                        if isinstance(item_data, int):
+                            quantity = item_data
+                        else:
+                            quantity = item_data['quantity']
                         order_line_item = OrderLineItem(
                             order=order,
                             product=product,
@@ -82,19 +93,27 @@ def checkout(request):
                         )
                         order_line_item.save()
                     except Product.DoesNotExist:
+                        # Handle the case when the product doesn't exist
                         messages.error(request, "One of the products in your cart wasn't found in our database. Please call us for assistance!")
                         order.delete()
                         return redirect(reverse('view_cart'))
 
+            # Save the info to the user's profile if all is well
             request.session['save_info'] = 'save-info' in request.POST
+
+            # Clear the cart session
+            request.session['cart'] = {}
+
             return redirect(reverse('checkout_success', args=[order_number]))
         else:
             messages.error(request, 'There was an error with your form. Please double check your information.')
     else:
+        # Handle GET request
         if not cart:
             messages.error(request, "There's nothing in your cart at the moment")
             return redirect(reverse('shop'))
 
+        # Attempt to prefill the form with user's profile info
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
@@ -127,16 +146,21 @@ def checkout(request):
     return render(request, 'checkout/checkout.html', context)
 
 
+
 def checkout_success(request, order_number):
+    """
+    Handle successful checkouts
+    """
     if order_number:
         order = get_object_or_404(Order, order_number=order_number)
-        print(f"Order retrieved successfully with order number: {order_number}")
 
         if request.user.is_authenticated:
             profile = UserProfile.objects.get(user=request.user)
+            # Attach the user's profile to the order
             order.user_profile = profile
             order.save()
 
+            # Save the user's info
             if request.session['save_info']:
                 profile_data = {
                     'default_phone_number': order.phone_number,
@@ -151,10 +175,12 @@ def checkout_success(request, order_number):
                 if user_profile_form.is_valid():
                     user_profile_form.save()
 
-        messages.success(request, f'Order successfully processed! Your order number is {order_number}. A confirmation email will be sent to {order.email}.')
+        messages.success(request, f'Order successfully processed! \
+            Your order number is {order_number}. A confirmation \
+            email will be sent to {order.email}.')
 
-        if 'cart' in request.session:
-            del request.session['cart']
+        # Clear the cart session
+        clear_cart(request)
 
         template = 'checkout/checkout_success.html'
         context = {

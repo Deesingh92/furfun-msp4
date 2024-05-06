@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from django.contrib import messages
 from .models import Product, CartItem, Cart
-from django.contrib.auth.decorators import login_required
 from .utils import get_or_create_cart
+from django.contrib.auth.decorators import login_required
 from decimal import Decimal
 
 def view_cart(request):

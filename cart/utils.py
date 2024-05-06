@@ -6,5 +6,6 @@ def get_or_create_cart(request):
         return cart
     else:
         if 'cart' not in request.session:
+            # Initialize an empty cart dictionary in the session
             request.session['cart'] = {}
-        return request.session['cart']
+        return request.session.get('cart', {})  # Ensure that we return a dictionary

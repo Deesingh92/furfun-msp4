@@ -120,7 +120,7 @@ h2 {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1000;
-    display: none; /* Initially hidden */
+    display: none; 
   }
   
   
@@ -148,15 +148,22 @@ h2 {
   
   /* Loading Overlay */
   #loading-overlay {
+    display: none;
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1001;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(94, 91, 91, 0.85);
+      z-index: 9999;
   }
   
   .loading-spinner {
-    color: #ffffff;
+    display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      height: 100%;
   }
   
 
@@ -202,3 +209,109 @@ h2 {
   #card-element {
     margin-top: 20px;
   }
+
+  /* Styles for Thank You page */
+  .thank-you-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .thank-you-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .order-details, .order-items, .total-amount, .confirmation-email {
+    margin-bottom: 30px;
+  }
+  
+  .order-details h2, .order-items h2, .total-amount, .confirmation-email {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .order-items ul {
+    padding-left: 20px;
+  }
+  
+  .order-items li {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #666;
+  }
+  
+  .total-amount {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .confirmation-email {
+    font-size: 18px;
+    color: #666;
+  }
+
+  .submit-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.submit-button a,
+.submit-button button {
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+.submit-button button {
+    background-color: #333;
+    color: #fff;
+}
+
+.submit-button a:hover,
+.submit-button button:hover {
+    background-color: #555;
+}
+
+.submit-button a {
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #333;
+}
+
+.submit-button a:hover {
+  background-color: #f0f0f0;
+}
+
+/* Add space between form fields */
+.fieldset-label,
+.form-check-label {
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    margin-bottom: 15px;
+}
+
+/* Add space between the submit button and the form fields */
+.submit-button {
+    margin-top: 20px;
+}
