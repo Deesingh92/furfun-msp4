@@ -6,9 +6,7 @@ from .utils import get_or_create_cart
 from decimal import Decimal
 
 def view_cart(request):
-    print("User:", request.user)
     cart = get_or_create_cart(request)
-    print("Cart ID:", cart.id)  # Print the ID of the cart
     return render(request, 'cart.html', {'cart': cart})
 
 @login_required
@@ -60,7 +58,6 @@ def clear_cart(request):
     # Update session cart
     request.session.pop('cart', None)
 
-    print("Cart Contents:", cart.cart_items.all())  # Print cleared cart items
     return redirect('cart_detail') 
 
 @login_required
