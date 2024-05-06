@@ -298,7 +298,7 @@ h2 {
   background-color: #f0f0f0;
 }
 
-/* Add space between form fields */
+
 .fieldset-label,
 .form-check-label {
     margin-bottom: 10px;
@@ -311,7 +311,7 @@ textarea {
     margin-bottom: 15px;
 }
 
-/* Add space between the submit button and the form fields */
+
 .submit-button {
     margin-top: 20px;
 }
