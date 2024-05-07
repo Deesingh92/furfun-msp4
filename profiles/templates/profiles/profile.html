@@ -1,20 +1,44 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-    <h1>User Profiles</h1>
-    <div class="profiles-container">
-        {% if profiles %}
-            <ul>
-                {% for profile in profiles %}
-                    <li>
-                        <h2>{{ profile.user.username }}</h2>
-                        <p>Email: {{ profile.user.email }}</p>
-                       
-                    </li>
-                {% endfor %}
-            </ul>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <hr>
+        <h1>User Profile</h1>
+        <div class="profile-details">
+          <p><strong>Username:</strong> {{ request.user.username }}</p>
+          <p><strong>Email:</strong> {{ request.user.email }}</p>
+          <hr>
+          <h2>Edit Profile</h2>
+          <div class="profile-form">
+            <form method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <hr>
+        <h2>Order History</h2>
+        <hr>
+        {% if orders %}
+          <ul class="order-list">
+            {% for order in orders %}
+              <li>
+                <a href="{% url 'order_detail' order.order_number %}">{{ order.order_number }}</a>
+                <span class="order-date">{{ order.date }}</span>
+                <span class="order-total">Total: {{ order.total }}</span>
+              </li>
+            {% endfor %}
+          </ul>
         {% else %}
-            <p>No profiles found.</p>
+          <p>No order history available.</p>
         {% endif %}
+      </div>
     </div>
+  </div>
 {% endblock %}
