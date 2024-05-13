@@ -1,6 +1,9 @@
 from django.shortcuts import render, get_object_or_404, HttpResponse, redirect
 from .models import Product, Category
 from django.db.models.functions import Lower
+from django.contrib.auth.decorators import login_required
+from .forms import ProductForm
+
 
 
 def shop(request):
@@ -59,15 +62,41 @@ def product_detail(request, product_id):
 
     return render(request, 'shop/product_detail.html', context)
 
-
+@login_required
 def add_product(request):
     if request.method == 'POST':
-        product_name = request.POST.get('product_name')
-        price = request.POST.get('price')
-        if product_name and price:
-            Product.objects.create(name=product_name, price=price)
+        form = ProductForm(request.POST)
+        if form.is_valid():
+            form.save()
             return redirect('shop')
-        else:
-            return HttpResponse('Product name and price are required.')
     else:
-        return render(request, 'shop/add_product.html')
+        form = ProductForm()
+    return render(request, 'shop/add_product.html', {'form': form})
+
+
+@login_required
+def edit_product(request, product_id):
+    """A view to edit an existing product"""
+    product = get_object_or_404(Product, pk=product_id)
+    if request.method == 'POST':
+        form = ProductForm(request.POST, instance=product)
+        if form.is_valid():
+            print("Form is valid.")
+            form.save()
+            print("Product updated successfully.")
+            return redirect('product_detail', product_id=product_id)  # Redirect to the product detail page
+        else:
+            print("Form errors:", form.errors)
+    else:
+        form = ProductForm(instance=product)
+    return render(request, 'shop/edit_product.html', {'form': form, 'product': product})
+
+
+@login_required
+def delete_product(request, product_id):
+    """A view to delete an existing product"""
+    product = get_object_or_404(Product, pk=product_id)
+    if request.method == 'POST':
+        product.delete()
+        return redirect('shop')
+    return render(request, 'shop/delete_product.html', {'product': product})

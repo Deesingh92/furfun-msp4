@@ -1,30 +1,30 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Add Product{% endblock %}
+{% block title %}Edit Product{% endblock %}
 
 {% block content %}
 <div class="form-container">
     <hr>
-    <h2 class="form-title">Add a New Product</h2>
+    <h2 class="form-title">Edit Product</h2>
     <hr>
     <form method="post">
         {% csrf_token %}
         <label for="product_name">Product Name:</label><br>
-        <input type="text" id="product_name" name="product_name" value="{{ product_name }}"><br><br>
+        <input type="text" id="product_name" name="name" value="{{ product.name }}"><br><br>
         <label for="description">Description:</label><br>
-        <textarea id="description" name="description">{{ description }}</textarea><br><br>
+        <textarea id="description" name="description">{{ product.description }}</textarea><br><br>
         <label for="price">Price:</label><br>
-        <input type="number" id="price" name="price" value="{{ price }}"><br><br>
+        <input type="number" id="price" name="price" value="{{ product.price }}"><br><br>
         <label for="stock">Stock:</label><br>
-        <input type="number" id="stock" name="stock" value="{{ stock }}"><br><br>
+        <input type="number" id="stock" name="stock" value="{{ product.quantity }}"><br><br>
         <!-- Image Section -->
         <label for="image">Image:</label><br>
         <input type="file" id="image" name="image"><br><br>
         <!-- Image URL -->
         <label for="image_url">Image URL:</label><br>
-        <input type="text" id="image_url" name="image_url" value="{{ image_url }}"><br><br>
-        <button type="submit">Add Product</button>
+        <input type="text" id="image_url" name="image_url" value="{{ product.image_url }}"><br><br>
+        <button type="submit">Update Product</button>
     </form>
 </div>
 {% endblock %}
