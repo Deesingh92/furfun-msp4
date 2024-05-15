@@ -34,8 +34,10 @@
                             </div>
                             <div class="card-footer bg-white pt-0 border-0">
                                 <a href="{% url 'product_detail' product.id %}" class="btn btn-sm btn-outline-primary">View Details</a>
-                                <a href="{% url 'edit_product' product.id %}" class="btn btn-sm btn-outline-secondary">Edit</a>
-                                <a href="{% url 'delete_product' product.id %}" class="btn btn-sm btn-outline-danger">Remove</a>
+                                {% if user.is_authenticated and user.is_superuser %}
+                                    <a href="{% url 'edit_product' product.id %}" class="btn btn-sm btn-outline-secondary">Edit</a>
+                                    <a href="{% url 'delete_product' product.id %}" class="btn btn-sm btn-outline-danger">Remove</a>
+                                {% endif %}
                             </div>
                         </div>
                     </div>

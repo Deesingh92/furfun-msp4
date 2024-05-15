@@ -107,6 +107,7 @@ nav ul li a:hover {
 #carouselExampleAutoplaying {
     max-width: 100%;
     margin: 0 auto;
+    position: relative;
 }
 
 #carouselExampleAutoplaying .carousel-inner .carousel-item img {
@@ -366,6 +367,22 @@ nav ul li a:hover {
     max-width: 100%;
     height: auto;
     margin-bottom: 20px;
+}
+
+.dropdown-menu {
+    z-index: 10000;
+}
+
+@media (max-width: 767px) {
+    #carouselExampleAutoplaying {
+        margin-top: 100px;
+    }
+
+
+@media (max-width: 767px) {
+    .dropdown-menu {
+        z-index: 10000;
+    }
 }
 
 @media (max-width: 768px) {
