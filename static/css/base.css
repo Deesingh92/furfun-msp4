@@ -373,11 +373,20 @@ nav ul li a:hover {
     z-index: 10000;
 }
 
-@media (max-width: 767px) {
-    #carouselExampleAutoplaying {
-        margin-top: 100px;
-    }
 
+
+@media (max-width: 767px) {
+    .container {
+        margin-top: 100px;
+        margin-bottom: 150px;
+    }
+}
+
+@media (max-width: 767px) {
+    footer {
+       max-height: 300px;
+    }
+}
 
 @media (max-width: 767px) {
     .dropdown-menu {
