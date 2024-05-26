@@ -1,1 +1,1 @@
-weweb: gunicorn furfun.wsgi:application
+web: gunicorn furfun.wsgi:application
