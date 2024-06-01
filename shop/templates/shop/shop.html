@@ -23,7 +23,7 @@
                         <div class="text-center"> 
                             <a href="{% url 'product_detail' product.id %}">
                                 {% if product.image %}
-                                    <img class="card-img-top img-fluid" src="{% static '{{ product.image.url }}' %}" alt="{{ product.name }}">
+                                    <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
                                 {% else %}
                                     <img class="card-img-top img-fluid" src="{% static 'media/placeholder_image.jpg' %}" alt="{{ product.name }}">
                                 {% endif %}
