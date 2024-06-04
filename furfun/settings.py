@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = ['furfun-dbbf5a9a33bb.herokuapp.com', 'localhost', '8000-deesingh92-furfunmsp4-2hy60y9z36i.ws-eu114.gitpod.io']
 
@@ -133,7 +133,6 @@ WSGI_APPLICATION = 'furfun.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 if 'DATABASE_URL' in os.environ:
-    print('loading livedb....')
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
