@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['furfun-dbbf5a9a33bb.herokuapp.com', 'localhost', '8000-deesingh92-furfunmsp4-i69n50ed687.ws-eu114.gitpod.io']
+ALLOWED_HOSTS = ['furfun-dbbf5a9a33bb.herokuapp.com', 'localhost', '8000-deesingh92-furfunmsp4-2hy60y9z36i.ws-eu114.gitpod.io']
 
 
 
@@ -110,7 +110,7 @@ AUTHENTICATION_BACKENDS = [
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-deesingh92-furfunmsp4-i3zw73u4xxw.ws-eu111.gitpod.io',
+    'https://8000-deesingh92-furfunmsp4-2hy60y9z36i.ws-eu114.gitpod.io',
 ]
 
 
@@ -133,6 +133,7 @@ WSGI_APPLICATION = 'furfun.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 if 'DATABASE_URL' in os.environ:
+    print('loading livedb....')
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
