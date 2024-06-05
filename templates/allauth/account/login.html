@@ -39,8 +39,8 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
-  <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
   <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
+  <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
 </form>
 
 <style>
@@ -101,14 +101,16 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
         padding: 10px 15px;
         font-size: 16px;
         color: #fff;
-        background-color: #007BFF;
+        background-color: #6c757d; /* Match the secondaryAction background */
         border: none;
         border-radius: 4px;
         cursor: pointer;
+        width: 100%; /* Make the button full width */
+        text-align: center; /* Center align text */
     }
 
     .signup form button:hover, .login form button:hover {
-        background-color: #0056b3;
+        background-color: #5a6268; /* Match the secondaryAction hover background */
     }
 
     .button.secondaryAction {
@@ -119,8 +121,8 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
         border-radius: 4px;
         text-decoration: none;
         display: inline-block;
-        margin: 5px 0;
         width: 100%; /* Make the button full width */
+        font-size: 16px;
     }
 
     .button.secondaryAction:hover {
