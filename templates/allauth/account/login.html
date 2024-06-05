@@ -40,7 +40,7 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
   <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-  <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
+  <button class="secondaryAction" type="submit">{% trans "Sign In" %}</button>
 </form>
 
 <style>
@@ -82,6 +82,7 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
     .signup form, .login form {
         display: flex;
         flex-direction: column;
+        align-items: center; /* Center align form elements */
     }
 
     .signup form p, .login form p {
@@ -104,6 +105,7 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
         border: none;
         border-radius: 4px;
         cursor: pointer;
+        width: 100%; /* Make the button full width */
     }
 
     .signup form button:hover, .login form button:hover {
@@ -118,7 +120,10 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
         border-radius: 4px;
         text-decoration: none;
         display: inline-block;
-        margin: 5px 0;
+        width: 100%; /* Make the button full width */
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
     }
 
     .button.secondaryAction:hover {
