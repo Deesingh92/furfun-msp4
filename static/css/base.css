@@ -386,6 +386,12 @@ nav ul li a:hover {
     footer {
         max-height: 200px;
     }
+    .navbar-collapse {
+        background-color: #654321; /* Dark brown background */
+    }
+    .navbar-nav .nav-link {
+        color: #fff; /* Ensure the links are white for better contrast */
+    }
 }
 
 @media (max-width: 768px) {
