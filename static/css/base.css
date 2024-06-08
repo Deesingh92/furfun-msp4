@@ -89,6 +89,10 @@ nav ul li a:hover {
     color: #f79000;
 }
 
+.navbar-collapse {
+    background-color: #654321; 
+}
+
 /* Header Container Styles */
 .header-container {
     display: flex;
@@ -385,12 +389,6 @@ nav ul li a:hover {
     }
     footer {
         max-height: 200px;
-    }
-    .navbar-collapse {
-        background-color: #654321; /* Dark brown background */
-    }
-    .navbar-nav .nav-link {
-        color: #fff; /* Ensure the links are white for better contrast */
     }
 }
 
