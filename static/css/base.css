@@ -90,7 +90,7 @@ nav ul li a:hover {
 }
 
 .navbar-collapse {
-    background-color: #654321; 
+    background-color: #654321;!important
 }
 
 /* Header Container Styles */
