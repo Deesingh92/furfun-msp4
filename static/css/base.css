@@ -401,6 +401,9 @@ nav ul li a:hover {
     .contact-container {
         padding: 10px;
     }
+    footer {
+        max-height: 200px;
+    }
 }
 
 /* Additional Styles */
