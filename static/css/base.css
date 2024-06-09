@@ -365,10 +365,6 @@ nav ul li a:hover {
         left: 0;
         z-index: 1030;
     }
-    .navbar {
-        justify-content: center;
-        bottom: 20px;
-    }
 }
 
 @media (max-width: 767px) {
@@ -384,14 +380,9 @@ nav ul li a:hover {
     .logo {
         display: none;
     }
-    header {
-        background-color: #b96f2a;
-        color: #fff;
-        padding: 20px;
-        text-align: right;
-        height: 100%;
-        position: relative;
-        max-height: 200px;
+    .navbar {
+        justify-content: center;
+        bottom: 20px;
     }
 }
 
