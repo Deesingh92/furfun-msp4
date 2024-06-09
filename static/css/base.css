@@ -384,7 +384,7 @@ nav ul li a:hover {
     .logo {
         display: none;
     }
-    .custom-nav-link {
+    nav ul {
         position: relative;
         bottom: 15px;
     }
