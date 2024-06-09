@@ -380,9 +380,9 @@ nav ul li a:hover {
     .logo {
         display: none;
     }
-    .navbar {
-        justify-content: center;
-        bottom: 20px;
+    .custom-nav-link {
+        position: relative;
+        bottom: 15px;
     }
 }
 
