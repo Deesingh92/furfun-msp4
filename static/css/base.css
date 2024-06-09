@@ -394,7 +394,7 @@ nav ul li a:hover {
     }
 
     .container-footer {
-        text-align: center; /* Center align content */
+        text-align: center; 
     }
 
     .col-md-7 {
@@ -403,11 +403,11 @@ nav ul li a:hover {
     }
 
     .social-icons {
-        margin-top: 10px; /* Add some space between social icons and address */
+        margin-top: 10px; 
     }
 
     .social-icons li {
-        margin: 0 5px; /* Adjust margin */
+        margin: 0 5px; 
     }
 
 }
@@ -417,7 +417,7 @@ nav ul li a:hover {
     .logo {
         display: none;
     }
-    .navbar-nav {
+    .navbar-nav .nav-item {
         margin-top: 15px;
     }
 }
