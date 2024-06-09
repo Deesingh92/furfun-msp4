@@ -37,8 +37,8 @@ base.css | [image](static/media/checkout-css.png) | No errors Found
 | AIM | Achieved | Image |
 --- | --- | --- | 
 **As a first time visitor to the website, I would like to..** 
-Be able to browse through all the courses available for purchase | yes | [image1](static/images/Courselist.png) |
-Be able to Search for specific courses via categories | yes | [image1](static/images/sorting.png) |
+Be able to browse through all the product available for purchase | yes | [image1](static/media/product_list.png) |
+Be able to select for specific products via categories | yes | [image1](static/images/sorting.png) |
 Be able to Know basic information of the Courses easily such as price, name etc | yes | [image1](static/images/Courselist.png) |
 Be able to Read about the company of the website | yes | [image](static/images/about.png) |
 Be able to communicate with the website as in email, contact number etc | yes | [image1](static/images/contact.png) |
