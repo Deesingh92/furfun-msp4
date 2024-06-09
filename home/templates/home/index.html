@@ -4,52 +4,50 @@
 {% block title %}Home - Fur Fun{% endblock %}
 
 {% block content %}
-<section id="welcome">
-    <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-12 my-auto">
-                <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active mt-2">
-                            <div class="video-wrapper">
-                                <video width="100%" height="auto" autoplay muted loop>
+    <section id="welcome">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-12 my-auto">
+                    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active mt-2">
+                                <video width="100%" height="auto" autoplay>
                                     <source src="{% static 'media/videos/treat_vid.mp4' %}" type="video/mp4">
                                 </video>
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h2 class="display-4 text-white fw-bold">Welcome to Fur Fun!</h2>
+                                    <p class="lead text-white">Your one-stop shop for all your pet needs.</p>
+                                    <a href="{% url 'shop' %}" class="btn btn-primary btn-lg">Explore Now</a>
+                                </div>
                             </div>
-                            <div class="carousel-caption d-none d-md-block">
-                                <h2 class="display-4 text-white fw-bold">Welcome to Fur Fun!</h2>
-                                <p class="lead text-white">Your one-stop shop for all your pet needs.</p>
-                                <a href="{% url 'shop' %}" class="btn btn-primary btn-lg">Explore Now</a>
+                            <div class="carousel-item mt-2">
+                                <img src="{% static 'media/dog.jpg' %}" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h2 class="display-4 text-white fw-bold">Welcome to Fur Fun!</h2>
+                                    <p class="lead text-white">Discover the best products for your furry friends.</p>
+                                    <a href="{% url 'shop' %}" class="btn btn-primary btn-lg">Shop Now</a>
+                                </div>
+                            </div>
+                            <div class="carousel-item mt-2">
+                                <img src="{% static 'media/dog2.jpg' %}" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h2 class="display-4 text-white fw-bold">Welcome to Fur Fun!</h2>
+                                    <p class="lead text-white">Find everything you need to pamper your pets.</p>
+                                    <a href="{% url 'shop' %}" class="btn btn-primary btn-lg">Get Started</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="carousel-item mt-2">
-                            <img src="{% static 'media/dog.jpg' %}" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h2 class="display-4 text-white fw-bold">Welcome to Fur Fun!</h2>
-                                <p class="lead text-white">Discover the best products for your furry friends.</p>
-                                <a href="{% url 'shop' %}" class="btn btn-primary btn-lg">Shop Now</a>
-                            </div>
-                        </div>
-                        <div class="carousel-item mt-2">
-                            <img src="{% static 'media/dog2.jpg' %}" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h2 class="display-4 text-white fw-bold">Welcome to Fur Fun!</h2>
-                                <p class="lead text-white">Find everything you need to pamper your pets.</p>
-                                <a href="{% url 'shop' %}" class="btn btn-primary btn-lg">Get Started</a>
-                            </div>
-                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 {% endblock %}
