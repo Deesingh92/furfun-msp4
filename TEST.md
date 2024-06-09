@@ -10,25 +10,19 @@ product_detail.html | [image](static/media/productvalidator.png) | Only the erro
 base.html | [image](static/media/base.validator.png) | Only the errors regarding to the django code left. W3validators does not recognize django syntax as {%  %}
 register.html | [image](static/media/register-validator.png) | Only the errors regarding to the django code left. W3validators does not recognize django syntax as {%  %}
 profile.html | [image](static/media/profile-validator.png) | Only the errors regarding to the django code left. W3validators does not recognize django syntax as {%  %}
-login.html | [image](static/images/course_list.validator.png) | Only the errors regarding to the django code left. W3validators does not recognize django syntax as {%  %}
-bag.html | [image](static/images/bag.validator.png) | Only the errors regarding to the django code left. W3validators does not recognize django syntax as {%  %}
-checkout_success.html | [image](static/images/sucess.validator.png) | Only the errors regarding to the django code left. W3validators does not recognize django syntax as {%  %}
-checkout.html | [image](static/images/checkout.validator.png) | Only the errors regarding to the django code left. W3validators does not recognize django syntax as {%  %}
+login.html | [image](static/media/login-validator.png) | Only the errors regarding to the django code left. W3validators does not recognize django syntax as {%  %}
+cart.html | [image](static/media/cart-validator.png) | Only the errors regarding to the django code left. W3validators does not recognize django syntax as {%  %}
+checkout_success.html | [image](static/media/success-validator.png) | Only the errors regarding to the django code left. W3validators does not recognize django syntax as {%  %}
+checkout.html | [image](static/media/checkout-validator.png) | Only the errors regarding to the django code left. W3validators does not recognize django syntax as {%  %}
 
 [top](#content)
 
 - #### **CSS Testing**
 | FILE | Result | Notes
 --- | --- | --- |
-navbar.css | [image](static/images/noerrors.css.png) | No errors Found
-list.css | [image](static/images/noerrors.css.png) | No errors Found
-home.css | [image](static/images/noerrors.css.png) | No errors Found
-footer.css | [image](static/images/noerrors.css.png) | No errors Found
-course_detail.css | [image](static/images/noerrors.css.png) | No errors Found
-checkout.css | [image](static/images/noerrors.css.png) | No errors Found
-card.css | [image](static/images/noerrors.css.png) | No errors Found
-base.css | [image](static/images/noerrors.css.png) | No errors Found
-bag.css | [image](static/images/noerrors.css.png) | 1 error found Value Error : font-weight 400px is not a font-weight value : 400px. Fixed
+checkout.css | [image](static/media/checkout-css.png) | No errors Found
+base.css | [image](static/media/checkout-css.png) | No errors Found
+
 
 [top](#content)
 
@@ -37,8 +31,6 @@ bag.css | [image](static/images/noerrors.css.png) | 1 error found Value Error : 
 
 * I test all the views.py urls.py and models.py from all the apps.
 
-* I have to left some errors as (E501: Line too long, and E711: comparison to None should be 'if cond is not None:')
-as when I change it.
 [top](#content)
 
 - #### **User Stories Testing**
@@ -83,7 +75,7 @@ CREATE a shopping cart(Add products) | yes | yes | no(as intended)
 READ the products in the Shopping cart | yes | yes | no(as intended)
 UPDATE the products in the Shopping cart | yes | yes | no(as intended)
 DELETE the products in the Shopping cart | yes | yes | no(as intended)
-**Profile - from accounts app**
+**Profile - from profiles app**
 CREATE a Users Profile | yes | yes | no(as intended)
 READ  username, email, avatar | yes | yes | no(as intended)
 UPDATE username, email, avatar | yes | yes | no(as intended)
@@ -113,18 +105,16 @@ Both 'Password' fields must match | yes | yes | yes
 'Street Address 2' field will only accept up to 80 characters | yes | yes | yes
 'County, State, or Locality' field will only accept up to 80 characters | yes | yes | yes
 'Card number' field will only accept numbers | yes | yes | yes
-**Add Course -**
+**Add Products -**
 'Category' will have a drop down containing options from the Category database | yes | yes | yes
 'Price' will only accept numbers. It will take a numbers up to 4 digits in length | yes | yes | yes
 'Price' will not go lower than 0 | yes | yes | yes
 'Name' will allow up to 100 characters | yes | yes | yes
-'Slug' will only allow up to 100 characters | yes | yes | yes
-'Sub_title' will allow up to 200 characters | yes | yes | yes
-'thumbnail' will be a URL field and it is possible to be empty | yes | yes | yes
+'sku' will only allow up to 100 characters | yes | yes | yes
+'image' will allow up to 200 characters | yes | yes | yes
+'image_url' will be a URL field and it is possible to be empty | yes | yes | yes
 'Description' will allow up to 500 characters | yes | yes | yes
-'Active:'  will have a drop down containing options Yes and No | yes | yes | yes
-'Is published' will be click box | yes | yes | yes
-'Is featured' will be a click box | yes | yes | yes
+
 **Contact us - _footer.html**
 'Name' field will accept upto 100 characters | yes | yes | yes
 'E-mail' field must have follow the pattern of have a '@' and a '.' in the email | yes | yes | yes
@@ -133,7 +123,9 @@ Both 'Password' fields must match | yes | yes | yes
 [top](#content)
 
 - ### Lighthouse testing
-I used Google Chrome Lighthouse testing to find out the quality of the website. Here are my results: [image](static/images/light House.png)
+I used Google Chrome Lighthouse testing to find out the quality of the website. Here are my results: 
+[Desktop](static/media/lighthouse.png)
+[Mobile](static/media/lighthouse1.png)
 
 [top](#content)
 
@@ -144,26 +136,21 @@ AIM | SM | MD | LG |
 Links / URLs | yes | yes | yes
 Images | yes | yes | yes
 Renders as expected | yes | yes | yes
-**COURSES - course_list.html**
+**SHOP - product_list.html**
 Links / URLs | yes | yes | yes
 Images | yes | yes | yes
 Renders as expected | yes | yes | yes
-**COURSE DETAIL - course_detail.html**
-Links / URLs | yes | yes | yes
-Images | yes | yes | yes
-Renders as expected | yes | yes | yes
-Form validation | yes | yes | yes
-**VIDEO DETAIL - video_detail.html**
+**PRODUCT DETAIL - product_detail.html**
 Links / URLs | yes | yes | yes
 Images | yes | yes | yes
 Renders as expected | yes | yes | yes
 Form validation | yes | yes | yes
-**BAG - bag.html**
+**CART - CART.html**
 Links / URLs | yes | yes | yes
 Images | yes | yes | yes
 Renders as expected | yes | yes | yes
 Form validation | yes | yes | yes
-**PROFILE - my_profile.html**
+**PROFILE - profile.html**
 Links / URLs | yes | yes | yes
 Images | yes | yes | yes
 Renders as expected | yes | yes | yes
@@ -184,32 +171,11 @@ Renders as expected | yes | yes | yes
 
 - ### Jest Test Testing Javascript:
 
-- ##### I used Jest test to set some of the functions I create with Javascript.
+- ##### I used JSHINT test to set some of the functions I create with Javascript.
 
 I didnt mannage to test jQuery Code. So create some Mock Function to do the testing
 
-![Jest Test](static/images/emailJsTest.png "EmailJs")
+![JSHINT Test](static/media/stripe-test.png "Stripe")
 
-![Jest Test](static/images/home-Elements.Test.png "Home_elemts")
-
-- ### Django test Testing Python code, views and Models:
-
-- ##### I used Django tests to set some models and views I cretes  with Python.
-
-[Test Commit](https://github.com/Manuperezro/YogaCourses-MSP4/commit/a88b036998cb1502d1df75f4ba57c19b959e9850/)
 
 [top](#content)
-
-- ### Bugs and Fixes
-ISSUE | Solved? | How? | link
---- | --- | --- | --- | 
-Some of imgs wasn’t rendering after Hosting files in AWS S3 | Yes | I found a solution in Slack overflow: I had to change the src in the imgs fields and used a Django Pattern {% %} instead | (https://github.com/Manuperezro/YogaCourses-MSP4/commit/d84d53b355f8b56f28f233ca72368e83ce7b9994) 
-Courses(Products form Stripe not rendering | yes | Thanks to one of the amazing tutors I realize that it was a Json object, So I import Json, created and empty list to storage the objects and them append the Products. | (https://github.com/Manuperezro/YogaCourses-MSP4/commit/3e731f54a30dcf01702d40e20ca69791c1203da2)
-Hero video Not rendering | yes | It wasn't working because the video was storage in the media_root file, I did move into the static, and create a folder named video. Also used the {% load static %} tag and them simply used the relative file path of the video.mp4 in the vide src  |(https://github.com/Manuperezro/YogaCourses-MSP4/commit/e4510a2c50a2af0876c8003a8c6c8208fa2eff16)
-Sections not working when I tried to add a new video to the courses | yes | The foreign key in the Sections modal wrong, I was using the Category model instead of Course model | (https://github.com/Manuperezro/YogaCourses-MSP4/commit/8ba099f8a27182579c68e53bb8d4636c918031f8)
-YouTube Videos not rendering | Yes | I found a tutorial in google which help me to realize I wasn't copying the right url from YouTube, I had to copy  the embed video url, not the video url | (https://startcodingnow.com/embedding-videos-into-django-project/#:~:text=Install%20the%20package%20pip%20install%20django-embed-video%20Change%20settings.py,%28...%20%27embed_video%27%2C%29%20Add%20the%20field%20to%20your%20model)
-Checkout messages showing in the Login form | Yes | I found a way of clearing the other messages and just hd to add a couple of lines of code <  storage = messages.get_messages(request) / storage.used = True>  | (https://github.com/Manuperezro/YogaCourses-MSP4/commit/81d802fa03325552721f507c3e0ab8186a732590)
-
-### Remainding Errors in the Google Developers Tool Console:
-
-- The only errors shows in the console in google developers tool, are related to the Jest test Mock functions I created to test the code. They don't affect the User's interactivity with the site.
