@@ -39,16 +39,15 @@ base.css | [image](static/media/checkout-css.png) | No errors Found
 **As a first time visitor to the website, I would like to..** 
 Be able to browse through all the product available for purchase | yes | [image1](static/media/product_list.png) |
 Be able to select for specific products via categories | yes | [image1](static/images/sorting.png) |
-Be able to Know basic information of the Courses easily such as price, name etc | yes | [image1](static/images/Courselist.png) |
-Be able to Read about the company of the website | yes | [image](static/images/about.png) |
-Be able to communicate with the website as in email, contact number etc | yes | [image1](static/images/contact.png) |
-Be able to Register to the website | yes | [image](static/images/register.png) |
-Be able to procced with a secure online payment system | yes | [image](static/images/order succesfull.png) |
+Be able to Know basic information of the Courses easily such as price, name etc | yes | [image1](static/media/product_detail.png) |
+Be able to Read about the company of the website | yes | [image](static/media/about.png) |
+Be able to communicate with the website as in email, contact number etc | yes | [image1](static/media/contact.png) |
+Be able to Register to the website | yes | [image](static/media/register.png) |
+Be able to procced with a secure online payment system | yes | [image](static/media/checkout.png) |
 **As a registered member to the website, I would like to..** 
-To be able to find the list of courses saved in their shopping cart | yes | [image](static/images/cart.png) |
+To be able to find the list of courses saved in their shopping cart | yes | [image](static/media/cart.png) |
 To be able View and edit my shopping basket | yes | [image](static/images/cart.png) |
-To have a page with my information given such as name, email, avatar | yes | [image](static/images/Profile.png)) | 
-To be able to Purchase with ease and confidence | yes | [image]() |
+To have a page with my information given such as name, email, avatar | yes | [image](static/media/footer.png)) | 
 **As a site owner/admin user, I would like to..**
 Edit products on the websites for reasons such as typo errors, pricing etc | yes | [image](static/images/admin.png) |
 Add and remove products | yes | [image delete 1](readme/images/delete_product.png) [image](static/images/admin.png) |

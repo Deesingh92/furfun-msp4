@@ -359,28 +359,6 @@ nav ul li a:hover {
     z-index: 10000;
 }
 
-.video-wrapper, .carousel-item img {
-    position: relative;
-    width: 100%;
-    padding-top: 56.25%; 
-}
-
-.video-wrapper video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-}
-
-.carousel-item img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-
-
 
 /* Media Queries */
 @media (min-width: 992px) {
