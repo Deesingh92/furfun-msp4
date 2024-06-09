@@ -386,7 +386,7 @@ nav ul li a:hover {
     }
     footer {
         position: static;
-        max-height: 100px;
+        max-height: 200px;
         padding: 0px 0;
         box-sizing: border-box;
         padding-top: 20px;
