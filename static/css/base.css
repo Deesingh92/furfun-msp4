@@ -362,7 +362,7 @@ nav ul li a:hover {
 .video-wrapper, .carousel-item img {
     position: relative;
     width: 100%;
-    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    padding-top: 56.25%; 
 }
 
 .video-wrapper video {
@@ -371,13 +371,15 @@ nav ul li a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures the video covers the container without being distorted */
+    max-width: 400px;
+    max-height: 700px;
+    object-fit: cover; 
 }
 
 .carousel-item img {
     width: 100%;
     height: auto;
-    object-fit: cover; /* Ensures the images cover the container without being distorted */
+    object-fit: cover;
 }
 
 
