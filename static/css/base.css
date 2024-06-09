@@ -408,6 +408,15 @@ nav ul li a:hover {
     footer {
         max-height: 200px;
     }
+    header {
+        background-color: #b96f2a;
+        color: #fff;
+        padding: 20px;
+        text-align: right;
+        height: 100%;
+        position: relative;
+        max-height: 200px;
+    }
 }
 
 /* Additional Styles */
