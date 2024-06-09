@@ -417,6 +417,9 @@ nav ul li a:hover {
     .logo {
         display: none;
     }
+    .navbar-nav {
+        margin-top: 15px;
+    }
 }
 
 @media (max-width: 768px) {
