@@ -20,9 +20,9 @@
 ### By Davinder Torna
 
 
-![Mock-up](static/images/flat-devices-mockup-Home.png "Home")
+![Mock-up](static/media/all-devices-home.png "Home")
 
-![Mock-up](static/images/flat-devices-mockup-Courses.png "Courses" )
+![Mock-up](static/media/all-devices-shop.png "Shop" )
 
 ### Repository Link
 
@@ -202,7 +202,7 @@ Usage Guide
 
 4. Footer:
 
-    Background: Dark Brown (#654321)
+    Background: granite (#fff)
     Text and Links: White (#FFFFFF)
     Hover Links: Light Brown (#D2B48C)
 
@@ -242,13 +242,11 @@ By strategically using these shades of brown, white, and grey, FurFun can create
 
 + Colour:
 
-![Colour](static/images/yellow-and-gray-2-by-schemecolor.png "Colour Scheme")
-
-- Links : 
+![Colour](static/media/color-pallete.png "Colour Scheme")
 
 + Background:
 
-The Background Video was downloaded from n[Pexels](https://www.pexels.com/es-es/).
+The Background Video was downloaded from [Pexels](https://www.pexels.com/es-es/).
 
 While background videos can sometimes be considered bad practice for UX due to potential distractions and loading times, when implemented thoughtfully, they can enhance the user experience by creating an engaging and dynamic first impression. Since FurFun is a platform dedicated to dog products and you have chosen a video of a dog eating treats, this can effectively showcase the joy and satisfaction that your products bring to pets.
 
@@ -263,9 +261,9 @@ The Basic structure of Rock Yoga on Demand was created using:
 
 - PC Mac screen: 
 
- ![wireframe](static/images/readme/wireframe1.png "PC  and phone wireframe")
+ ![wireframe](static/media/wireframe1.png "PC  and phone wireframe")
 
- ![wireframe](static/images/readme/wireframe2.png "PC  and phone wireframe")
+ ![wireframe](static/media/wireframe2.png "PC  and phone wireframe")
 
 [top](#content)
 
@@ -277,13 +275,13 @@ The Basic structure of Rock Yoga on Demand was created using:
 
    - At the top of the FurFun website sits our navigation bar, a reliable companion on your journey to enhancing your dog's life. Crafted with shades of brown, white, and grey, it blends seamlessly with our warm and inviting 	aesthetic while maintaining clarity and professionalism.
       
-   ![features](static/images/readme/navbar.png "Navigation bar")
+   ![features](static/media/navbar.png "Navigation bar")
 
    - ##### Product display list:
 
    - The users are able to see here all the product that the platform offers. which name and price, the images are links which if the user purchases the product, redirect the users to the product content.
 
-    ![features](static/images/Courselist.png "Course list")
+    ![features](static/media/product_list.png "Product list")
 
    - ##### Product detail:
 
@@ -295,7 +293,7 @@ Overall, this page template offers a user-friendly interface for browsing and pu
 
    - Also the users will be able to add the product to the shopping cart.
 
-    ![features](static/images/details..png "Course detail")
+     ![features](static/media/product_detail.png "Product Details")
 
 
    - ##### Shopping cart
@@ -308,7 +306,7 @@ Overall, this page template offers a user-friendly interface for browsing and pu
 
    - Typically, there's a visual indicator (like a cart icon) showing the number of items in the cart.	
 
-    ![features]( static/images/cart.png "Shopping cart")
+     ![features](static/media/cart.png "Cart")
 
    - ##### Checkout 
 
@@ -316,7 +314,7 @@ Overall, this page template offers a user-friendly interface for browsing and pu
 
    - FurFun's integration with Stripe allows it to offer a convenient, secure, and reliable payment experience for customers, ensuring that pet owners can easily purchase their favorite products for their furry companions with peace of mind.
 
-    ![features]( static/images/checkout.png "Checkout")
+       ![features](static/media/checkout.png "Checkout")
 
    - ##### Registration and Login Form.
 
@@ -326,14 +324,14 @@ Overall, this page template offers a user-friendly interface for browsing and pu
 
    - Upon submission, the data is sent to the server for authentication.
 
-   ![features](static/images/register.png "Registration")
+   ![features](static/media/register.png "Registration")
 
-   ![features](static/images/Login.png "Login")
+   ![features](static/media/login.png "Login")
 
    - ##### Footer.
    - In the footer section, users will find all the essential contact information and social media links for Fur Fun. The footer also features social media icons for Facebook, Twitter, and Instagram, allowing users to stay connected through various platforms. Additionally, the footer includes a copyright notice, ensuring that all content is protected and reserved for Fur Fun. This layout provides a comprehensive and accessible way for users to contact and connect with the business.
 
-   ![features](static/images/footer.png "Footer")
+   ![features](static/media/footer.png "Footer")
 
 - ## Future Features I will like to include.
 
