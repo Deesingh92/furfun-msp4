@@ -374,6 +374,10 @@ nav ul li a:hover {
     .logo {
         display: none;
     }
+    footer {
+        max-height: 100px;
+        padding: 5px 0;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -383,16 +387,6 @@ nav ul li a:hover {
     .custom-nav-link {
         position: relative;
         bottom: 15px;
-    }
-}
-
-@media (max-width: 767px) {
-    .container {
-        margin-top: 50px;
-        margin-bottom: 100px;
-    }
-    footer {
-        max-height: 200px;
     }
 }
 
@@ -409,10 +403,6 @@ nav ul li a:hover {
     .contact-container {
         padding: 10px;
     }
-    footer {
-        max-height: 100px;
-    }
-
 }
 
 /* Additional Styles */
