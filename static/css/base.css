@@ -380,11 +380,6 @@ nav ul li a:hover {
     object-fit: cover;
 }
 
-.dog-video {
-    max-height: 350px;
-    object-fit: cover;
-
-}
 
 
 /* Media Queries */
