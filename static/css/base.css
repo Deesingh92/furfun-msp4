@@ -371,6 +371,12 @@ nav ul li a:hover {
     }
 }
 
+@media (min-width: 768px) {
+    .navbar-expand-md .navbar-nav .dropdown-menu {
+        position: initial;
+    }
+}
+
 @media (max-width: 767px) {
     header h1 {
         display: none;
