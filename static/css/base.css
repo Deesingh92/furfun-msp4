@@ -362,7 +362,6 @@ nav ul li a:hover {
 .responsive-video {
     width: 100%;
     height: auto;
-    display: block;
   }
 
 /* Media Queries */
