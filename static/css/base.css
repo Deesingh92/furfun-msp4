@@ -365,15 +365,6 @@ nav ul li a:hover {
         left: 0;
         z-index: 1030;
     }
-    header {
-        background-color: #b96f2a;
-        color: #fff;
-        padding: 20px;
-        text-align: right;
-        height: 100%;
-        position: relative;
-        max-height: 200px;
-    }
 }
 
 @media (max-width: 767px) {
@@ -388,6 +379,15 @@ nav ul li a:hover {
 @media (min-width: 768px) and (max-width: 991px) {
     .logo {
         display: none;
+    }
+    header {
+        background-color: #b96f2a;
+        color: #fff;
+        padding: 20px;
+        text-align: right;
+        height: 100%;
+        position: relative;
+        max-height: 200px;
     }
 }
 
