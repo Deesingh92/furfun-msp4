@@ -357,25 +357,25 @@ Overall, this page template offers a user-friendly interface for browsing and pu
 
 - ### **Models Flow Chart**
 
-- #### Content Data Base:
+- #### Shop Data Base:
 
-![Database](static/images/ContentYogaCoursesDB.jpeg "Content App DB")
+![Database](static/media/db-categories.png "Shop App DB")
 
-![Database](static/images/ContentDBStrucutre.png "Content DB Structure")
+![Database](static/media/shop-db.png "Shop DB Structure")
 
-![Database](static/images/CategoryDBExample.jpeg "Category DB")
+![Database](static/media/category-example.png "Category DB")
+
+![Database](static/media/category-structure.png "Category DB Structure")
 
 - #### Checkout Data Base:
 
-![Database](static/images/CheckoutDB.png "Checkout App DB")
+![Database](static/media/Checkout-DB.png "Checkout App DB")
 
-![Database](static/images/CheckoutDStructure.png "Checkout DB Structure")
+- #### Profiles Data Base:
 
-- #### Acconts Data Base:
+![Database](static/media/profiles-db.png "Profiles App DB")
 
-![Database](static/images/DBStudentYogaCourses.png "Students App DB")
-
-![Database](static/images/StudentDB.png "Students DB Structure")
+![Database](static/media/profile-example.png "Profiles App Example")
 
 - ## **TESTING**
 
@@ -498,5 +498,5 @@ You may want to have access via a copy of the repository on your own device. The
 [top](#content)
 
 ## **DISCLAIMER**
-This website was built for educational reasons for my coding course from Code Institute. No content, written(unless mentioned in CREDITS - Content of this document) and imagery, is of mine. No offence was intentionally made with the pricing of the producta (I randomly made up the numbers, and also randomly collect the videos from YouTube as Content).
-If there is anything you would like to enquire about, please do so via my email tornadavinder@gmail.com
+This website was built for educational reasons for my coding course from Code Institute. No content, written(unless mentioned in CREDITS - Content of this document) and imagery, is of mine. No offence was intentionally made with the pricing of the products.
+If there is anything you would like to enquire about, please do so via my email tornadavinder@gmail.com.
