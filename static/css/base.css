@@ -89,6 +89,10 @@ nav ul li a:hover {
     color: #f79000;
 }
 
+.my-0 {
+    text-align: right;
+}
+
 /* Header Container Styles */
 .header-container {
     display: flex;
@@ -360,6 +364,10 @@ nav ul li a:hover {
         right: 0;
         left: 0;
         z-index: 1030;
+    }
+    .navbar {
+        justify-content: center;
+        bottom: 20px;
     }
 }
 
