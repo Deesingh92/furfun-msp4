@@ -359,6 +359,12 @@ nav ul li a:hover {
     z-index: 10000;
 }
 
+.responsive-video {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
 /* Media Queries */
 @media (min-width: 992px) {
     .fixed-top-desktop-only {
