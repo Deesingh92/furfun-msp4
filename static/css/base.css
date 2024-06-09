@@ -387,6 +387,11 @@ nav ul li a:hover {
     footer p {
         margin: 0px 0;
     }
+     
+    footer .col-md-6 {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
