@@ -49,8 +49,8 @@ To be able to find the list of courses saved in their shopping cart | yes | [ima
 To be able View and edit my shopping basket | yes | [image](static/images/cart.png) |
 To have a page with my information given such as name, email, avatar | yes | [image](static/media/footer.png)) | 
 **As a site owner/admin user, I would like to..**
-Edit products on the websites for reasons such as typo errors, pricing etc | yes | [image](static/images/admin.png) |
-Add and remove products | yes | [image delete 1](readme/images/delete_product.png) [image](static/images/admin.png) |
+Edit products on the websites for reasons such as typo errors, pricing etc | yes | [image](static/media/edit.png) |
+Add and remove products | yes | [image delete 1](readme/images/delete_product.png) [image](static/media/remove.png) |
 **As a user in the process of purchasing, I would like to..** 
 A secured payment system | yes | |
 Be acknowledged of how secure the process is for peace of mind | yes | |
@@ -168,7 +168,7 @@ Links / URLs | yes | yes | yes
 Images | yes | yes | yes
 Renders as expected | yes | yes | yes
 
-- ### Jest Test Testing Javascript:
+- ### JSHINT Testing Javascript:
 
 - ##### I used JSHINT test to set some of the functions I create with Javascript.
 
