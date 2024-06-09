@@ -378,13 +378,13 @@ nav ul li a:hover {
         display: none;
     }
     footer {
-        position: static; /* Make footer static to ensure it fits content */
-        max-height: 200px; /* Increased to better fit content */
+        position: static;
+        max-height: 200px;
         padding: 10px 0;
         box-sizing: border-box;
     }
     footer p {
-        margin: 5px 0; /* Reduce margin to minimize space */
+        margin: 5px 0;
     }
 }
 
@@ -449,4 +449,9 @@ nav ul li a:hover {
     padding: 5px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
+}
+
+.navbar-collapse {
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
 }
