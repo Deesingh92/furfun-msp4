@@ -379,7 +379,7 @@ nav ul li a:hover {
     }
     footer {
         position: static;
-        max-height: 200px;
+        max-height: 100px;
         padding: 10px 0;
         box-sizing: border-box;
     }
